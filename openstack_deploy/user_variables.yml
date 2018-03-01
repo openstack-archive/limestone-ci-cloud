@@ -1,0 +1,44 @@
+---
+# Because we have three haproxy nodes, we need
+# to one active LB IP, and we use keepalived for that.
+## Load Balancer Configuration (haproxy/keepalived)
+haproxy_keepalived_external_vip_cidr: "192.169.91.101/32"
+haproxy_keepalived_internal_vip_cidr: "10.52.2.2/32"
+haproxy_keepalived_external_interface: br-mgmt
+haproxy_keepalived_internal_interface: br-mgmt
+
+## Ceph cluster fsid (must be generated before first run)
+## Generate a uuid using: python -c 'import uuid; print(str(uuid.uuid4()))'
+generate_fsid: false
+fsid: 98a1078e-7b72-4782-9cf7-ae7c68fd900f # Replace with your generated UUID
+
+## ceph-ansible settings
+## See https://github.com/ceph/ceph-ansible/tree/master/group_vars for
+## additional configuration options availble.
+monitor_address_block: "{{ cidr_networks.container }}"
+public_network: "{{ cidr_networks.container }}"
+osd_scenario: collocated
+osd_objectstore: bluestore
+
+# ceph-ansible automatically creates pools & keys for OpenStack services
+openstack_config: true
+cinder_ceph_client: cinder
+glance_ceph_client: glance
+glance_default_store: rbd
+glance_rbd_store_pool: images
+
+# Ceph OSD devices
+devices:
+  - /dev/sdc
+  - /dev/sdd
+
+cinder_backends:
+  RBD:
+    volume_driver: cinder.volume.drivers.rbd.RBDDriver
+    rbd_pool: volumes
+    rbd_ceph_conf: /etc/ceph/ceph.conf
+    rbd_store_chunk_size: 8
+    volume_backend_name: rbddriver
+    rbd_user: "{{ cinder_ceph_client }}"
+    rbd_secret_uuid: "{{ cinder_ceph_client_uuid }}"
+    report_discard_supported: true
