@@ -8,6 +8,9 @@ haproxy_keepalived_internal_vip_cidr: "10.53.2.2/32"
 haproxy_keepalived_external_interface: eth1
 haproxy_keepalived_internal_interface: eth1
 
+# Add the SSH pubkey needed for deployment
+lxc_container_ssh_key: "{{ lookup('file', inventory_dir ~ '/../../../ssh/id_rsa.pub') }}"
+
 ## Ceph cluster fsid (must be generated before first run)
 ## Generate a uuid using: python -c 'import uuid; print(str(uuid.uuid4()))'
 generate_fsid: false
