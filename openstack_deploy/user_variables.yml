@@ -11,6 +11,17 @@ haproxy_keepalived_internal_interface: eth1
 # Add the SSH pubkey needed for deployment
 lxc_container_ssh_key: "{{ lookup('file', inventory_dir ~ '/../../../ssh/id_rsa.pub') }}"
 
+# Proxy config
+proxy_env_url: http://mirror.lstn.net:8995/
+no_proxy_env: "localhost,127.0.0.1,{{ internal_lb_vip_address }},{{ external_lb_vip_address }},mirror.lstn.net,{{ ansible_host }}"
+global_environment_variables:
+  HTTP_PROXY: "{{ proxy_env_url }}"
+  HTTPS_PROXY: "{{ proxy_env_url }}"
+  NO_PROXY: "{{ no_proxy_env }}"
+  http_proxy: "{{ proxy_env_url }}"
+  https_proxy: "{{ proxy_env_url }}"
+  no_proxy: "{{ no_proxy_env }}"
+
 ## Ceph cluster fsid (must be generated before first run)
 ## Generate a uuid using: python -c 'import uuid; print(str(uuid.uuid4()))'
 generate_fsid: false
