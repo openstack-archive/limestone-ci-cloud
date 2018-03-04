@@ -34,6 +34,10 @@ global_overrides:
           - hosts
         is_container_address: true
         is_ssh_address: true
+        static_routes:
+          # Route to container networks
+          - cidr: 10.4.69.0/24
+            gateway: 10.53.2.1
     - network:
         container_bridge: "br-vlan"
         container_type: "veth"
@@ -73,11 +77,17 @@ metering-alarm_hosts: *infrastructure_hosts
 metrics_hosts: *infrastructure_hosts
 
 # nova hypervisors
-#compute_hosts: &compute_hosts
-#  compute1:
-#    ip: 172.29.236.16
-#  compute2:
-#    ip: 172.29.236.17
-#
-#ceph-osd_hosts: *compute_hosts
-#metering-compute_hosts: *compute_hosts
+compute_hosts: &compute_hosts
+  lsn-d5509:
+    ip: 10.4.69.10
+  lsn-d6125:
+    ip: 10.4.69.11
+  lsn-d6334:
+    ip: 10.4.69.12
+  lsn-d6116:
+    ip: 10.4.69.13
+  lsn-d5497:
+    ip: 10.4.69.14
+
+ceph-osd_hosts: *compute_hosts
+metering-compute_hosts: *compute_hosts
