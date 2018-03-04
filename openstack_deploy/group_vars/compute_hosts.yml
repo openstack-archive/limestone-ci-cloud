@@ -1,0 +1,6 @@
+---
+
+# 10.x network NTP servers
+security_ntp_servers:
+  - int.ntp1.lstn.net
+  - int.ntp2.lstn.net
