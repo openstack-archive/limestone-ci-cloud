@@ -1,0 +1,5 @@
+---
+
+# Can be removed once https://review.openstack.org/#/c/549638/
+# is implemented in the OSA SHA tag used.
+ntp_service_enabled: False
