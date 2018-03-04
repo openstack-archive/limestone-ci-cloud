@@ -8,6 +8,166 @@
   },
   "_meta": {
     "hostvars": {
+      "lsn-d5497": {
+        "ansible_host": "10.4.69.14",
+        "component": "ceph-osd",
+        "container_address": "10.4.69.14",
+        "container_name": "lsn-d5497",
+        "container_networks": {
+          "container_address": {
+            "address": "10.4.69.14",
+            "bridge": "br-mgmt",
+            "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
+            "type": "veth"
+          },
+          "eth12_address": {
+            "bridge": "br-vlan",
+            "netmask": null,
+            "type": "veth"
+          }
+        },
+        "container_types": "lsn-d5497-host_containers",
+        "is_metal": true,
+        "physical_host": "lsn-d5497",
+        "physical_host_group": "ceph-osd_hosts",
+        "properties": {
+          "is_metal": true
+        }
+      },
+      "lsn-d5509": {
+        "ansible_host": "10.4.69.10",
+        "component": "ceph-osd",
+        "container_address": "10.4.69.10",
+        "container_name": "lsn-d5509",
+        "container_networks": {
+          "container_address": {
+            "address": "10.4.69.10",
+            "bridge": "br-mgmt",
+            "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
+            "type": "veth"
+          },
+          "eth12_address": {
+            "bridge": "br-vlan",
+            "netmask": null,
+            "type": "veth"
+          }
+        },
+        "container_types": "lsn-d5509-host_containers",
+        "is_metal": true,
+        "physical_host": "lsn-d5509",
+        "physical_host_group": "ceph-osd_hosts",
+        "properties": {
+          "is_metal": true
+        }
+      },
+      "lsn-d6116": {
+        "ansible_host": "10.4.69.13",
+        "component": "ceph-osd",
+        "container_address": "10.4.69.13",
+        "container_name": "lsn-d6116",
+        "container_networks": {
+          "container_address": {
+            "address": "10.4.69.13",
+            "bridge": "br-mgmt",
+            "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
+            "type": "veth"
+          },
+          "eth12_address": {
+            "bridge": "br-vlan",
+            "netmask": null,
+            "type": "veth"
+          }
+        },
+        "container_types": "lsn-d6116-host_containers",
+        "is_metal": true,
+        "physical_host": "lsn-d6116",
+        "physical_host_group": "ceph-osd_hosts",
+        "properties": {
+          "is_metal": true
+        }
+      },
+      "lsn-d6125": {
+        "ansible_host": "10.4.69.11",
+        "component": "ceph-osd",
+        "container_address": "10.4.69.11",
+        "container_name": "lsn-d6125",
+        "container_networks": {
+          "container_address": {
+            "address": "10.4.69.11",
+            "bridge": "br-mgmt",
+            "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
+            "type": "veth"
+          },
+          "eth12_address": {
+            "bridge": "br-vlan",
+            "netmask": null,
+            "type": "veth"
+          }
+        },
+        "container_types": "lsn-d6125-host_containers",
+        "is_metal": true,
+        "physical_host": "lsn-d6125",
+        "physical_host_group": "ceph-osd_hosts",
+        "properties": {
+          "is_metal": true
+        }
+      },
+      "lsn-d6334": {
+        "ansible_host": "10.4.69.12",
+        "component": "ceph-osd",
+        "container_address": "10.4.69.12",
+        "container_name": "lsn-d6334",
+        "container_networks": {
+          "container_address": {
+            "address": "10.4.69.12",
+            "bridge": "br-mgmt",
+            "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
+            "type": "veth"
+          },
+          "eth12_address": {
+            "bridge": "br-vlan",
+            "netmask": null,
+            "type": "veth"
+          }
+        },
+        "container_types": "lsn-d6334-host_containers",
+        "is_metal": true,
+        "physical_host": "lsn-d6334",
+        "physical_host_group": "ceph-osd_hosts",
+        "properties": {
+          "is_metal": true
+        }
+      },
       "lsn-mc1016": {
         "ansible_host": "192.169.91.98",
         "component": "neutron_sriov_nic_agent",
@@ -18,6 +178,12 @@
             "address": "192.169.91.98",
             "bridge": "br-mgmt",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           },
           "eth12_address": {
@@ -29,7 +195,7 @@
         "container_types": "lsn-mc1016-host_containers",
         "is_metal": true,
         "physical_host": "lsn-mc1016",
-        "physical_host_group": "ceph-mon_hosts",
+        "physical_host_group": "storage-infra_hosts",
         "properties": {
           "is_metal": true
         }
@@ -45,6 +211,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -63,6 +235,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -81,6 +259,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -99,6 +283,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -119,6 +309,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -137,6 +333,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -157,6 +359,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -175,6 +383,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -195,6 +409,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -213,6 +433,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -233,6 +459,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -251,6 +483,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -269,6 +507,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -287,6 +531,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -305,6 +555,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -323,6 +579,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -341,6 +603,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           },
           "eth12_address": {
@@ -365,6 +633,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -383,6 +657,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -401,6 +681,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -419,6 +705,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -437,6 +729,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -455,6 +753,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -473,6 +777,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -491,6 +801,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -509,6 +825,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -527,6 +849,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -545,6 +873,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -562,6 +896,12 @@
             "address": "192.169.91.99",
             "bridge": "br-mgmt",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           },
           "eth12_address": {
@@ -573,7 +913,7 @@
         "container_types": "lsn-mc1022-host_containers",
         "is_metal": true,
         "physical_host": "lsn-mc1022",
-        "physical_host_group": "ceph-mon_hosts",
+        "physical_host_group": "storage-infra_hosts",
         "properties": {
           "is_metal": true
         }
@@ -589,6 +929,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -607,6 +953,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -625,6 +977,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -643,6 +1001,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -663,6 +1027,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -681,6 +1051,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -701,6 +1077,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -719,6 +1101,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -739,6 +1127,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -757,6 +1151,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -777,6 +1177,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -795,6 +1201,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -813,6 +1225,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -831,6 +1249,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -849,6 +1273,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -867,6 +1297,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -885,6 +1321,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           },
           "eth12_address": {
@@ -909,6 +1351,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -927,6 +1375,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -945,6 +1399,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -963,6 +1423,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -981,6 +1447,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -999,6 +1471,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1017,6 +1495,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1035,6 +1519,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1053,6 +1543,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1071,6 +1567,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1089,6 +1591,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1106,6 +1614,12 @@
             "address": "192.169.91.100",
             "bridge": "br-mgmt",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           },
           "eth12_address": {
@@ -1117,7 +1631,7 @@
         "container_types": "lsn-mc1023-host_containers",
         "is_metal": true,
         "physical_host": "lsn-mc1023",
-        "physical_host_group": "ceph-mon_hosts",
+        "physical_host_group": "storage-infra_hosts",
         "properties": {
           "is_metal": true
         }
@@ -1133,6 +1647,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1151,6 +1671,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1169,6 +1695,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1187,6 +1719,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1207,6 +1745,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1225,6 +1769,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1245,6 +1795,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1263,6 +1819,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1283,6 +1845,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1301,6 +1869,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1321,6 +1895,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1339,6 +1919,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1357,6 +1943,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1375,6 +1967,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1393,6 +1991,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1411,6 +2015,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1429,6 +2039,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           },
           "eth12_address": {
@@ -1453,6 +2069,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1471,6 +2093,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1489,6 +2117,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1507,6 +2141,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1525,6 +2165,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1543,6 +2189,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1561,6 +2213,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1579,6 +2237,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1597,6 +2261,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1615,6 +2285,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1633,6 +2309,12 @@
             "bridge": "br-mgmt",
             "interface": "eth1",
             "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "veth"
           }
         },
@@ -1667,6 +2349,12 @@
             "is_ssh_address": true,
             "net_name": "vxlan",
             "range": "1:1000",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
             "type": "vxlan"
           }
         },
@@ -1806,7 +2494,13 @@
   },
   "ceilometer_agent_compute": {
     "children": [],
-    "hosts": []
+    "hosts": [
+      "lsn-d5509",
+      "lsn-d6334",
+      "lsn-d6125",
+      "lsn-d5497",
+      "lsn-d6116"
+    ]
   },
   "ceilometer_agent_notification": {
     "children": [],
@@ -1873,18 +2567,45 @@
   },
   "ceph-osd": {
     "children": [],
-    "hosts": []
+    "hosts": [
+      "lsn-d5509",
+      "lsn-d6334",
+      "lsn-d6125",
+      "lsn-d5497",
+      "lsn-d6116"
+    ]
+  },
+  "ceph-osd_all": {
+    "hosts": [
+      "lsn-d5509",
+      "lsn-d6334",
+      "lsn-d6125",
+      "lsn-d5497",
+      "lsn-d6116"
+    ]
   },
   "ceph-osd_container": {
     "hosts": []
   },
   "ceph-osd_containers": {
-    "children": [],
+    "children": [
+      "lsn-d5509-host_containers",
+      "lsn-d6334-host_containers",
+      "lsn-d6125-host_containers",
+      "lsn-d5497-host_containers",
+      "lsn-d6116-host_containers"
+    ],
     "hosts": []
   },
   "ceph-osd_hosts": {
     "children": [],
-    "hosts": []
+    "hosts": [
+      "lsn-d5509",
+      "lsn-d6334",
+      "lsn-d6125",
+      "lsn-d5497",
+      "lsn-d6116"
+    ]
   },
   "ceph_all": {
     "children": [
@@ -2001,13 +2722,34 @@
       "lsn-mc1022"
     ]
   },
+  "compute_all": {
+    "hosts": [
+      "lsn-d5509",
+      "lsn-d6334",
+      "lsn-d6125",
+      "lsn-d5497",
+      "lsn-d6116"
+    ]
+  },
   "compute_containers": {
-    "children": [],
+    "children": [
+      "lsn-d5509-host_containers",
+      "lsn-d6334-host_containers",
+      "lsn-d6125-host_containers",
+      "lsn-d5497-host_containers",
+      "lsn-d6116-host_containers"
+    ],
     "hosts": []
   },
   "compute_hosts": {
     "children": [],
-    "hosts": []
+    "hosts": [
+      "lsn-d5509",
+      "lsn-d6334",
+      "lsn-d6125",
+      "lsn-d5497",
+      "lsn-d6116"
+    ]
   },
   "dashboard_all": {
     "hosts": [
@@ -2728,16 +3470,37 @@
       "lsn-mc1022"
     ]
   },
+  "metering-compute_all": {
+    "hosts": [
+      "lsn-d5509",
+      "lsn-d6334",
+      "lsn-d6125",
+      "lsn-d5497",
+      "lsn-d6116"
+    ]
+  },
   "metering-compute_container": {
     "hosts": []
   },
   "metering-compute_containers": {
-    "children": [],
+    "children": [
+      "lsn-d5509-host_containers",
+      "lsn-d6334-host_containers",
+      "lsn-d6125-host_containers",
+      "lsn-d5497-host_containers",
+      "lsn-d6116-host_containers"
+    ],
     "hosts": []
   },
   "metering-compute_hosts": {
     "children": [],
-    "hosts": []
+    "hosts": [
+      "lsn-d5509",
+      "lsn-d6334",
+      "lsn-d6125",
+      "lsn-d5497",
+      "lsn-d6116"
+    ]
   },
   "metering-infra_all": {
     "hosts": [
@@ -2933,7 +3696,12 @@
       "lsn-mc1022",
       "lsn-mc1023_neutron_agents_container-bf9b803f",
       "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919"
+      "lsn-mc1022_neutron_agents_container-4f7ce919",
+      "lsn-d5509",
+      "lsn-d6334",
+      "lsn-d6125",
+      "lsn-d5497",
+      "lsn-d6116"
     ]
   },
   "neutron_metadata_agent": {
@@ -2966,7 +3734,12 @@
       "lsn-mc1022",
       "lsn-mc1023_neutron_agents_container-bf9b803f",
       "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919"
+      "lsn-mc1022_neutron_agents_container-4f7ce919",
+      "lsn-d5509",
+      "lsn-d6334",
+      "lsn-d6125",
+      "lsn-d5497",
+      "lsn-d6116"
     ]
   },
   "neutron_server": {
@@ -2989,7 +3762,12 @@
     "hosts": [
       "lsn-mc1023",
       "lsn-mc1016",
-      "lsn-mc1022"
+      "lsn-mc1022",
+      "lsn-d5509",
+      "lsn-d6334",
+      "lsn-d6125",
+      "lsn-d5497",
+      "lsn-d6116"
     ]
   },
   "nova_all": {
@@ -3068,7 +3846,13 @@
   },
   "nova_compute": {
     "children": [],
-    "hosts": []
+    "hosts": [
+      "lsn-d5509",
+      "lsn-d6334",
+      "lsn-d6125",
+      "lsn-d5497",
+      "lsn-d6116"
+    ]
   },
   "nova_compute_container": {
     "hosts": []
