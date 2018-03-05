@@ -1,0 +1,99 @@
+- name: Bootstrap neutron networks
+  hosts: utility_all[0]
+  gather_facts: no
+  tasks:
+    - name: Install shade module
+      pip:
+        name: shade
+        state: latest
+    - name: Create the Flat uplink network
+      os_network:
+        cloud: default
+        endpoint_type: internal
+        name: Flat External
+        provider_network_type: flat
+        provider_physical_network: flat
+        project: admin
+        external: yes
+        shared: no
+
+    - name: Create Flat uplink v4 subnet
+      os_subnet:
+        cloud: default
+        endpoint_type: internal
+        name: v4 uplink
+        network_name: Flat External
+        cidr: 10.53.2.0/24
+        gateway_ip: 10.53.2.1
+        enable_dhcp: no
+        allocation_pool_start: 10.53.2.3
+        allocation_pool_end: 10.53.2.4
+
+    - name: Create Flat uplink v6 subnet
+      os_subnet:
+        cloud: default
+        endpoint_type: internal
+        name: v6 uplink
+        network_name: Flat External
+        cidr: fd3b:86c4:135e:d033::/64
+        ip_version: 6
+        gateway_ip: fd3b:86c4:135e:d033::1
+        enable_dhcp: no
+        allocation_pool_start: fd3b:86c4:135e:d033::100
+        allocation_pool_end: fd3b:86c4:135e:d033::200
+
+    - name: Create the Gateway network
+      os_network:
+        cloud: default
+        endpoint_type: internal
+        name: Gateway Network
+        provider_network_type: vxlan
+        project: admin
+        external: yes
+        shared: yes
+
+    - name: Create Gateway v4 subnet
+      os_subnet:
+        cloud: default
+        endpoint_type: internal
+        name: Internal v4
+        network_name: Gateway Network
+        cidr: 10.4.70.0/24
+        gateway_ip: 10.4.70.1
+        allocation_pool_start: 10.4.70.10
+        allocation_pool_end: 10.4.70.254
+
+    - name: Create Gateway v6 subnet
+      os_subnet:
+        cloud: default
+        endpoint_type: internal
+        name: Public IPv6
+        network_name: Gateway Network
+        cidr: 2607:ff68:100:54::/64
+        ip_version: 6
+        gateway_ip: 2607:ff68:100:54::1
+        allocation_pool_start: 2607:ff68:100:54::100
+        allocation_pool_end: 2607:ff68:100:54:ffff:ffff:ffff:ffff
+        ipv6_address_mode: dhcpv6-stateful
+        ipv6_ra_mode: dhcpv6-stateful
+
+    # NOTE(logan): uses vendored os_router module from stable-2.4
+    # since the os_router module in 2.3 (pike) has broken idempotency
+    # and causes needless interface attach/deattaches.
+    # remove vendored module in queens
+    - name: Create flat uplink router
+      os_router:
+        cloud: default
+        endpoint_type: internal
+        name: Gateway Router
+        network: Flat External
+        enable_snat: no
+        external_fixed_ips:
+          - subnet: v4 uplink
+            ip: 10.53.2.3
+          - subnet: v6 uplink
+            ip: fd3b:86c4:135e:d033::100
+        interfaces:
+          - Internal v4
+          - Public IPv6
+

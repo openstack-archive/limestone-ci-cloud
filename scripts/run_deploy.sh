@@ -15,3 +15,7 @@ openstack-ansible setup-hosts.yml
 openstack-ansible setup-infrastructure.yml
 openstack-ansible setup-openstack.yml
 popd
+
+pushd ${PROJECT_PATH}/network_bootstrap
+openstack-ansible bootstrap-neutron.yml
+popd
