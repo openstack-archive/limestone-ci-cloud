@@ -42,7 +42,7 @@ global_overrides:
         container_bridge: "br-vlan"
         container_type: "veth"
         container_interface: "eth12"
-        host_bind_override: "bond0"
+        host_bind_override: macvlan2
         type: "flat"
         net_name: "flat"
         group_binds:
