@@ -22,6 +22,10 @@ global_environment_variables:
   https_proxy: "{{ proxy_env_url }}"
   no_proxy: "{{ no_proxy_env }}"
 
+# Enable L2pop and disable vxlan multicast
+neutron_l2_population: True
+neutron_vxlan_group:
+
 ## Ceph cluster fsid (must be generated before first run)
 ## Generate a uuid using: python -c 'import uuid; print(str(uuid.uuid4()))'
 generate_fsid: false
