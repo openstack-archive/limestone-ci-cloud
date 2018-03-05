@@ -27,7 +27,7 @@
             "type": "veth"
           },
           "eth12_address": {
-            "bridge": "br-vlan",
+            "bridge": "br-flat",
             "netmask": null,
             "type": "veth"
           }
@@ -59,7 +59,7 @@
             "type": "veth"
           },
           "eth12_address": {
-            "bridge": "br-vlan",
+            "bridge": "br-flat",
             "netmask": null,
             "type": "veth"
           }
@@ -91,7 +91,7 @@
             "type": "veth"
           },
           "eth12_address": {
-            "bridge": "br-vlan",
+            "bridge": "br-flat",
             "netmask": null,
             "type": "veth"
           }
@@ -123,7 +123,7 @@
             "type": "veth"
           },
           "eth12_address": {
-            "bridge": "br-vlan",
+            "bridge": "br-flat",
             "netmask": null,
             "type": "veth"
           }
@@ -155,7 +155,7 @@
             "type": "veth"
           },
           "eth12_address": {
-            "bridge": "br-vlan",
+            "bridge": "br-flat",
             "netmask": null,
             "type": "veth"
           }
@@ -184,11 +184,6 @@
                 "gateway": "10.53.2.1"
               }
             ],
-            "type": "veth"
-          },
-          "eth12_address": {
-            "bridge": "br-vlan",
-            "netmask": null,
             "type": "veth"
           }
         },
@@ -612,7 +607,7 @@
             "type": "veth"
           },
           "eth12_address": {
-            "bridge": "br-vlan",
+            "bridge": "br-flat",
             "interface": "eth12",
             "netmask": null,
             "type": "veth"
@@ -902,11 +897,6 @@
                 "gateway": "10.53.2.1"
               }
             ],
-            "type": "veth"
-          },
-          "eth12_address": {
-            "bridge": "br-vlan",
-            "netmask": null,
             "type": "veth"
           }
         },
@@ -1330,7 +1320,7 @@
             "type": "veth"
           },
           "eth12_address": {
-            "bridge": "br-vlan",
+            "bridge": "br-flat",
             "interface": "eth12",
             "netmask": null,
             "type": "veth"
@@ -1620,11 +1610,6 @@
                 "gateway": "10.53.2.1"
               }
             ],
-            "type": "veth"
-          },
-          "eth12_address": {
-            "bridge": "br-vlan",
-            "netmask": null,
             "type": "veth"
           }
         },
@@ -2048,7 +2033,7 @@
             "type": "veth"
           },
           "eth12_address": {
-            "bridge": "br-vlan",
+            "bridge": "br-flat",
             "interface": "eth12",
             "netmask": null,
             "type": "veth"
@@ -2360,13 +2345,13 @@
         },
         {
           "network": {
-            "container_bridge": "br-vlan",
+            "container_bridge": "br-flat",
             "container_interface": "eth12",
             "container_type": "veth",
             "group_binds": [
               "neutron_linuxbridge_agent"
             ],
-            "host_bind_override": "bond0",
+            "host_bind_override": "macvlan2",
             "net_name": "flat",
             "type": "flat"
           }
@@ -3612,9 +3597,6 @@
   "neutron_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022",
       "lsn-mc1023_neutron_agents_container-bf9b803f",
       "lsn-mc1016_neutron_agents_container-433c446a",
       "lsn-mc1022_neutron_agents_container-4f7ce919"
@@ -3647,9 +3629,6 @@
   "neutron_bgp_dragent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022",
       "lsn-mc1023_neutron_agents_container-bf9b803f",
       "lsn-mc1016_neutron_agents_container-433c446a",
       "lsn-mc1022_neutron_agents_container-4f7ce919"
@@ -3658,9 +3637,6 @@
   "neutron_dhcp_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022",
       "lsn-mc1023_neutron_agents_container-bf9b803f",
       "lsn-mc1016_neutron_agents_container-433c446a",
       "lsn-mc1022_neutron_agents_container-4f7ce919"
@@ -3669,9 +3645,6 @@
   "neutron_l3_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022",
       "lsn-mc1023_neutron_agents_container-bf9b803f",
       "lsn-mc1016_neutron_agents_container-433c446a",
       "lsn-mc1022_neutron_agents_container-4f7ce919"
@@ -3680,9 +3653,6 @@
   "neutron_lbaas_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022",
       "lsn-mc1023_neutron_agents_container-bf9b803f",
       "lsn-mc1016_neutron_agents_container-433c446a",
       "lsn-mc1022_neutron_agents_container-4f7ce919"
@@ -3691,9 +3661,6 @@
   "neutron_linuxbridge_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022",
       "lsn-mc1023_neutron_agents_container-bf9b803f",
       "lsn-mc1016_neutron_agents_container-433c446a",
       "lsn-mc1022_neutron_agents_container-4f7ce919",
@@ -3707,9 +3674,6 @@
   "neutron_metadata_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022",
       "lsn-mc1023_neutron_agents_container-bf9b803f",
       "lsn-mc1016_neutron_agents_container-433c446a",
       "lsn-mc1022_neutron_agents_container-4f7ce919"
@@ -3718,9 +3682,6 @@
   "neutron_metering_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022",
       "lsn-mc1023_neutron_agents_container-bf9b803f",
       "lsn-mc1016_neutron_agents_container-433c446a",
       "lsn-mc1022_neutron_agents_container-4f7ce919"
@@ -3729,9 +3690,6 @@
   "neutron_openvswitch_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022",
       "lsn-mc1023_neutron_agents_container-bf9b803f",
       "lsn-mc1016_neutron_agents_container-433c446a",
       "lsn-mc1022_neutron_agents_container-4f7ce919",
@@ -3760,9 +3718,6 @@
   "neutron_sriov_nic_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022",
       "lsn-d5509",
       "lsn-d6334",
       "lsn-d6125",
