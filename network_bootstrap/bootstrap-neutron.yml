@@ -62,6 +62,9 @@
         gateway_ip: 10.4.70.1
         allocation_pool_start: 10.4.70.10
         allocation_pool_end: 10.4.70.254
+        dns_nameservers:
+          - 10.3.3.0
+          - 10.3.4.0
 
     - name: Create Gateway v6 subnet
       os_subnet:
