@@ -39,7 +39,7 @@ global_overrides:
           - cidr: 10.4.69.0/24
             gateway: 10.53.2.1
     - network:
-        container_bridge: "br-vlan"
+        container_bridge: "br-flat"
         container_type: "veth"
         container_interface: "eth12"
         host_bind_override: macvlan2
