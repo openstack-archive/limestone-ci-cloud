@@ -26,6 +26,9 @@ global_environment_variables:
 neutron_l2_population: True
 neutron_vxlan_group:
 
+# Enable novnc instead of spice
+nova_console_type: novnc
+
 ## Ceph cluster fsid (must be generated before first run)
 ## Generate a uuid using: python -c 'import uuid; print(str(uuid.uuid4()))'
 generate_fsid: false
