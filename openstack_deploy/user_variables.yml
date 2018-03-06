@@ -11,6 +11,11 @@ haproxy_keepalived_internal_interface: eth1
 # Add the SSH pubkey needed for deployment
 lxc_container_ssh_key: "{{ lookup('file', inventory_dir ~ '/../../../ssh/id_rsa.pub') }}"
 
+# Galera max_connections default is 100*VCPU. On our controllers, this is 800 connections
+# With the base services deployed, OSA exceeds this threshold resulting in connection
+# contention in the database cluster
+galera_max_connections: 1500
+
 # Proxy config
 proxy_env_url: http://mirror.lstn.net:8995/
 no_proxy_env: "localhost,127.0.0.1,{{ internal_lb_vip_address }},{{ external_lb_vip_address }},mirror.lstn.net,{{ ansible_host }}"
