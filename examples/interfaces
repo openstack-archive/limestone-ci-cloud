@@ -24,35 +24,27 @@ iface bond0 inet manual
     bond-slaves enp1s0f0 enp1s0f1
     bond-xmit-hash-policy layer3+4
 
-auto macvlan0
-iface macvlan0 inet manual
-    pre-up ip link add macvlan0 link bond0 type macvlan mode passthru
-
-auto macvlan1
-iface macvlan1 inet manual
-    pre-up ip link add macvlan1 link bond0 type macvlan mode passthru
-
-auto macvlan2
-iface macvlan2 inet manual
-    pre-up ip link add macvlan2 link bond0 type macvlan mode passthru
-
 auto br-mgmt
 iface br-mgmt inet static
     bridge_stp off
     bridge_waitport 0
     bridge_fd 0
-    bridge_ports macvlan0
+    bridge_ports bond0 veth-int-mgmt
     address 192.169.91.98
     netmask 255.255.255.240
     gateway 192.169.91.97
     dns-nameserver 64.31.5.1
     dns-nameserver 64.31.5.2
 
+auto veth-int-mgmt
+iface veth-int-mgmt inet manual
+    pre-up ip link add dev veth-int-mgmt type veth peer name veth-int-flat
+
 auto br-flat
 iface br-flat inet manual
     bridge_stp off
     bridge_waitport 0
     bridge_fd 0
-    bridge_ports macvlan1
+    bridge_ports veth-int-flat
 
 source /etc/network/interfaces.d/*.cfg
