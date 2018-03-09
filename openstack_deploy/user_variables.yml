@@ -34,6 +34,14 @@ neutron_vxlan_group:
 # Enable novnc instead of spice
 nova_console_type: novnc
 
+# Adjust default OSA allocation ratios
+# The intent is to allow flexible ratios (to a point) while using ram as the
+# bottom line limiting factor in determining a full host normally.
+nova_compute_ksm_enabled: True
+nova_cpu_allocation_ratio: 3
+nova_disk_allocation_ratio: 3
+nova_ram_allocation_ratio: 1.25
+
 ## Ceph cluster fsid (must be generated before first run)
 ## Generate a uuid using: python -c 'import uuid; print(str(uuid.uuid4()))'
 generate_fsid: false
