@@ -29,6 +29,18 @@
         allocation_pool_start: 10.53.2.3
         allocation_pool_end: 10.53.2.4
 
+    - name: Create Flat public v4 subnet
+      os_subnet:
+        cloud: default
+        endpoint_type: internal
+        name: Public Subnet
+        network_name: Flat External
+        cidr: 216.245.200.128/28
+        gateway_ip: 216.245.200.129
+        enable_dhcp: no
+        allocation_pool_start: 216.245.200.130
+        allocation_pool_end: 216.245.200.142
+
     - name: Create Flat uplink v6 subnet
       os_subnet:
         cloud: default
@@ -90,10 +102,10 @@
         endpoint_type: internal
         name: Gateway Router
         network: Flat External
-        enable_snat: no
+        enable_snat: yes
         external_fixed_ips:
-          - subnet: v4 uplink
-            ip: 10.53.2.3
+          - subnet: Public Subnet
+            ip: 216.245.200.140
           - subnet: v6 uplink
             ip: fd3b:86c4:135e:d033::100
         interfaces:
