@@ -195,54 +195,6 @@
           "is_metal": true
         }
       },
-      "lsn-mc1016_aodh_container-9b85ff6a": {
-        "ansible_host": "10.53.2.248",
-        "component": "aodh_api",
-        "container_address": "10.53.2.248",
-        "container_name": "lsn-mc1016_aodh_container-9b85ff6a",
-        "container_networks": {
-          "container_address": {
-            "address": "10.53.2.248",
-            "bridge": "br-mgmt",
-            "interface": "eth1",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          }
-        },
-        "physical_host": "lsn-mc1016",
-        "physical_host_group": "metering-alarm_hosts",
-        "properties": {}
-      },
-      "lsn-mc1016_ceilometer_central_container-7baa1785": {
-        "ansible_host": "10.53.2.133",
-        "component": "ceilometer_agent_central",
-        "container_address": "10.53.2.133",
-        "container_name": "lsn-mc1016_ceilometer_central_container-7baa1785",
-        "container_networks": {
-          "container_address": {
-            "address": "10.53.2.133",
-            "bridge": "br-mgmt",
-            "interface": "eth1",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          }
-        },
-        "physical_host": "lsn-mc1016",
-        "physical_host_group": "metering-infra_hosts",
-        "properties": {}
-      },
       "lsn-mc1016_ceph-mon_container-92b68c0a": {
         "ansible_host": "10.53.2.35",
         "component": "ceph-mon",
@@ -392,30 +344,6 @@
         "properties": {
           "container_fs_size": "12G"
         }
-      },
-      "lsn-mc1016_gnocchi_container-f5b590cf": {
-        "ansible_host": "10.53.2.205",
-        "component": "gnocchi_api",
-        "container_address": "10.53.2.205",
-        "container_name": "lsn-mc1016_gnocchi_container-f5b590cf",
-        "container_networks": {
-          "container_address": {
-            "address": "10.53.2.205",
-            "bridge": "br-mgmt",
-            "interface": "eth1",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          }
-        },
-        "physical_host": "lsn-mc1016",
-        "physical_host_group": "metrics_hosts",
-        "properties": {}
       },
       "lsn-mc1016_haproxy_container-ed468697": {
         "ansible_host": "10.53.2.97",
@@ -908,54 +836,6 @@
           "is_metal": true
         }
       },
-      "lsn-mc1022_aodh_container-6c4c9ac7": {
-        "ansible_host": "10.53.2.68",
-        "component": "aodh_api",
-        "container_address": "10.53.2.68",
-        "container_name": "lsn-mc1022_aodh_container-6c4c9ac7",
-        "container_networks": {
-          "container_address": {
-            "address": "10.53.2.68",
-            "bridge": "br-mgmt",
-            "interface": "eth1",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          }
-        },
-        "physical_host": "lsn-mc1022",
-        "physical_host_group": "metering-alarm_hosts",
-        "properties": {}
-      },
-      "lsn-mc1022_ceilometer_central_container-61631af0": {
-        "ansible_host": "10.53.2.245",
-        "component": "ceilometer_agent_central",
-        "container_address": "10.53.2.245",
-        "container_name": "lsn-mc1022_ceilometer_central_container-61631af0",
-        "container_networks": {
-          "container_address": {
-            "address": "10.53.2.245",
-            "bridge": "br-mgmt",
-            "interface": "eth1",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          }
-        },
-        "physical_host": "lsn-mc1022",
-        "physical_host_group": "metering-infra_hosts",
-        "properties": {}
-      },
       "lsn-mc1022_ceph-mon_container-698cbd7e": {
         "ansible_host": "10.53.2.116",
         "component": "ceph-mon",
@@ -1105,30 +985,6 @@
         "properties": {
           "container_fs_size": "12G"
         }
-      },
-      "lsn-mc1022_gnocchi_container-3ec7d5bf": {
-        "ansible_host": "10.53.2.105",
-        "component": "gnocchi_api",
-        "container_address": "10.53.2.105",
-        "container_name": "lsn-mc1022_gnocchi_container-3ec7d5bf",
-        "container_networks": {
-          "container_address": {
-            "address": "10.53.2.105",
-            "bridge": "br-mgmt",
-            "interface": "eth1",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          }
-        },
-        "physical_host": "lsn-mc1022",
-        "physical_host_group": "metrics_hosts",
-        "properties": {}
       },
       "lsn-mc1022_haproxy_container-30f7bfde": {
         "ansible_host": "10.53.2.108",
@@ -1621,54 +1477,6 @@
           "is_metal": true
         }
       },
-      "lsn-mc1023_aodh_container-da583200": {
-        "ansible_host": "10.53.2.161",
-        "component": "aodh_api",
-        "container_address": "10.53.2.161",
-        "container_name": "lsn-mc1023_aodh_container-da583200",
-        "container_networks": {
-          "container_address": {
-            "address": "10.53.2.161",
-            "bridge": "br-mgmt",
-            "interface": "eth1",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          }
-        },
-        "physical_host": "lsn-mc1023",
-        "physical_host_group": "metering-alarm_hosts",
-        "properties": {}
-      },
-      "lsn-mc1023_ceilometer_central_container-189ea545": {
-        "ansible_host": "10.53.2.41",
-        "component": "ceilometer_agent_central",
-        "container_address": "10.53.2.41",
-        "container_name": "lsn-mc1023_ceilometer_central_container-189ea545",
-        "container_networks": {
-          "container_address": {
-            "address": "10.53.2.41",
-            "bridge": "br-mgmt",
-            "interface": "eth1",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          }
-        },
-        "physical_host": "lsn-mc1023",
-        "physical_host_group": "metering-infra_hosts",
-        "properties": {}
-      },
       "lsn-mc1023_ceph-mon_container-7e28dae9": {
         "ansible_host": "10.53.2.214",
         "component": "ceph-mon",
@@ -1818,30 +1626,6 @@
         "properties": {
           "container_fs_size": "12G"
         }
-      },
-      "lsn-mc1023_gnocchi_container-7c9f12aa": {
-        "ansible_host": "10.53.2.225",
-        "component": "gnocchi_api",
-        "container_address": "10.53.2.225",
-        "container_name": "lsn-mc1023_gnocchi_container-7c9f12aa",
-        "container_networks": {
-          "container_address": {
-            "address": "10.53.2.225",
-            "bridge": "br-mgmt",
-            "interface": "eth1",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          }
-        },
-        "physical_host": "lsn-mc1023",
-        "physical_host_group": "metrics_hosts",
-        "properties": {}
       },
       "lsn-mc1023_haproxy_container-99ffe655": {
         "ansible_host": "10.53.2.202",
@@ -2351,7 +2135,7 @@
             "group_binds": [
               "neutron_linuxbridge_agent"
             ],
-            "host_bind_override": "macvlan2",
+            "host_bind_override": "bond0",
             "net_name": "flat",
             "type": "flat"
           }
@@ -2410,19 +2194,11 @@
   },
   "aodh_alarm_evaluator": {
     "children": [],
-    "hosts": [
-      "lsn-mc1023_aodh_container-da583200",
-      "lsn-mc1016_aodh_container-9b85ff6a",
-      "lsn-mc1022_aodh_container-6c4c9ac7"
-    ]
+    "hosts": []
   },
   "aodh_alarm_notifier": {
     "children": [],
-    "hosts": [
-      "lsn-mc1023_aodh_container-da583200",
-      "lsn-mc1016_aodh_container-9b85ff6a",
-      "lsn-mc1022_aodh_container-6c4c9ac7"
-    ]
+    "hosts": []
   },
   "aodh_all": {
     "children": [
@@ -2435,26 +2211,14 @@
   },
   "aodh_api": {
     "children": [],
-    "hosts": [
-      "lsn-mc1023_aodh_container-da583200",
-      "lsn-mc1016_aodh_container-9b85ff6a",
-      "lsn-mc1022_aodh_container-6c4c9ac7"
-    ]
+    "hosts": []
   },
   "aodh_container": {
-    "hosts": [
-      "lsn-mc1023_aodh_container-da583200",
-      "lsn-mc1016_aodh_container-9b85ff6a",
-      "lsn-mc1022_aodh_container-6c4c9ac7"
-    ]
+    "hosts": []
   },
   "aodh_listener": {
     "children": [],
-    "hosts": [
-      "lsn-mc1023_aodh_container-da583200",
-      "lsn-mc1016_aodh_container-9b85ff6a",
-      "lsn-mc1022_aodh_container-6c4c9ac7"
-    ]
+    "hosts": []
   },
   "barbican_all": {
     "children": [
@@ -2471,29 +2235,15 @@
   },
   "ceilometer_agent_central": {
     "children": [],
-    "hosts": [
-      "lsn-mc1023_ceilometer_central_container-189ea545",
-      "lsn-mc1016_ceilometer_central_container-7baa1785",
-      "lsn-mc1022_ceilometer_central_container-61631af0"
-    ]
+    "hosts": []
   },
   "ceilometer_agent_compute": {
     "children": [],
-    "hosts": [
-      "lsn-d5509",
-      "lsn-d6334",
-      "lsn-d6125",
-      "lsn-d5497",
-      "lsn-d6116"
-    ]
+    "hosts": []
   },
   "ceilometer_agent_notification": {
     "children": [],
-    "hosts": [
-      "lsn-mc1023_ceilometer_central_container-189ea545",
-      "lsn-mc1016_ceilometer_central_container-7baa1785",
-      "lsn-mc1022_ceilometer_central_container-61631af0"
-    ]
+    "hosts": []
   },
   "ceilometer_all": {
     "children": [
@@ -2504,11 +2254,7 @@
     "hosts": []
   },
   "ceilometer_central_container": {
-    "hosts": [
-      "lsn-mc1023_ceilometer_central_container-189ea545",
-      "lsn-mc1016_ceilometer_central_container-7baa1785",
-      "lsn-mc1022_ceilometer_central_container-61631af0"
-    ]
+    "hosts": []
   },
   "ceph-mon": {
     "children": [],
@@ -2896,26 +2642,14 @@
   },
   "gnocchi_api": {
     "children": [],
-    "hosts": [
-      "lsn-mc1023_gnocchi_container-7c9f12aa",
-      "lsn-mc1016_gnocchi_container-f5b590cf",
-      "lsn-mc1022_gnocchi_container-3ec7d5bf"
-    ]
+    "hosts": []
   },
   "gnocchi_container": {
-    "hosts": [
-      "lsn-mc1023_gnocchi_container-7c9f12aa",
-      "lsn-mc1016_gnocchi_container-f5b590cf",
-      "lsn-mc1022_gnocchi_container-3ec7d5bf"
-    ]
+    "hosts": []
   },
   "gnocchi_metricd": {
     "children": [],
-    "hosts": [
-      "lsn-mc1023_gnocchi_container-7c9f12aa",
-      "lsn-mc1016_gnocchi_container-f5b590cf",
-      "lsn-mc1022_gnocchi_container-3ec7d5bf"
-    ]
+    "hosts": []
   },
   "haproxy": {
     "children": [],
@@ -3269,7 +3003,6 @@
       "lsn-mc1016_neutron_server_container-322f9e93",
       "lsn-mc1016_memcached_container-2aa7b436",
       "lsn-mc1016_horizon_container-ad0f36f4",
-      "lsn-mc1016_gnocchi_container-f5b590cf",
       "lsn-mc1016_heat_api_container-58364140",
       "lsn-mc1016_rabbit_mq_container-f058d205",
       "lsn-mc1016_haproxy_container-ed468697",
@@ -3278,9 +3011,7 @@
       "lsn-mc1016_glance_container-70fa7c6c",
       "lsn-mc1016_galera_container-be4858d8",
       "lsn-mc1016_cinder_volumes_container-d52eaeb8",
-      "lsn-mc1016_aodh_container-9b85ff6a",
       "lsn-mc1016_repo_container-2706da60",
-      "lsn-mc1016_ceilometer_central_container-7baa1785",
       "lsn-mc1016_nova_conductor_container-19a8bd43",
       "lsn-mc1016_cinder_scheduler_container-d7e296a2",
       "lsn-mc1016_neutron_agents_container-433c446a",
@@ -3301,7 +3032,6 @@
       "lsn-mc1022_neutron_server_container-a5a0c57b",
       "lsn-mc1022_memcached_container-03a584b7",
       "lsn-mc1022_horizon_container-62378de0",
-      "lsn-mc1022_gnocchi_container-3ec7d5bf",
       "lsn-mc1022_heat_api_container-2e5e8676",
       "lsn-mc1022_rabbit_mq_container-2ef37e52",
       "lsn-mc1022_haproxy_container-30f7bfde",
@@ -3310,9 +3040,7 @@
       "lsn-mc1022_glance_container-e538e0ba",
       "lsn-mc1022_galera_container-7bb56dee",
       "lsn-mc1022_cinder_volumes_container-787e2374",
-      "lsn-mc1022_aodh_container-6c4c9ac7",
       "lsn-mc1022_repo_container-a3846102",
-      "lsn-mc1022_ceilometer_central_container-61631af0",
       "lsn-mc1022_nova_conductor_container-79fb1341",
       "lsn-mc1022_cinder_scheduler_container-8b07299b",
       "lsn-mc1022_neutron_agents_container-4f7ce919",
@@ -3333,7 +3061,6 @@
       "lsn-mc1023_neutron_server_container-26ce3a6f",
       "lsn-mc1023_memcached_container-0eec111e",
       "lsn-mc1023_horizon_container-5b5a6252",
-      "lsn-mc1023_gnocchi_container-7c9f12aa",
       "lsn-mc1023_heat_api_container-d51a7e13",
       "lsn-mc1023_rabbit_mq_container-eff05466",
       "lsn-mc1023_haproxy_container-99ffe655",
@@ -3342,9 +3069,7 @@
       "lsn-mc1023_glance_container-6bb8c8df",
       "lsn-mc1023_galera_container-b9b9bb03",
       "lsn-mc1023_cinder_volumes_container-facf0d26",
-      "lsn-mc1023_aodh_container-da583200",
       "lsn-mc1023_repo_container-107d2617",
-      "lsn-mc1023_ceilometer_central_container-189ea545",
       "lsn-mc1023_nova_conductor_container-e3e90fd1",
       "lsn-mc1023_cinder_scheduler_container-04befc85",
       "lsn-mc1023_neutron_agents_container-bf9b803f",
@@ -3430,112 +3155,40 @@
     "children": [],
     "hosts": []
   },
-  "metering-alarm_all": {
-    "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1023_aodh_container-da583200",
-      "lsn-mc1016",
-      "lsn-mc1016_aodh_container-9b85ff6a",
-      "lsn-mc1022_aodh_container-6c4c9ac7",
-      "lsn-mc1022"
-    ]
-  },
   "metering-alarm_containers": {
-    "children": [
-      "lsn-mc1023-host_containers",
-      "lsn-mc1016-host_containers",
-      "lsn-mc1022-host_containers"
-    ],
+    "children": [],
     "hosts": []
   },
   "metering-alarm_hosts": {
-    "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022"
-    ]
-  },
-  "metering-compute_all": {
-    "hosts": [
-      "lsn-d5509",
-      "lsn-d6334",
-      "lsn-d6125",
-      "lsn-d5497",
-      "lsn-d6116"
-    ]
+    "children": [],
+    "hosts": []
   },
   "metering-compute_container": {
     "hosts": []
   },
   "metering-compute_containers": {
-    "children": [
-      "lsn-d5509-host_containers",
-      "lsn-d6334-host_containers",
-      "lsn-d6125-host_containers",
-      "lsn-d5497-host_containers",
-      "lsn-d6116-host_containers"
-    ],
+    "children": [],
     "hosts": []
   },
   "metering-compute_hosts": {
     "children": [],
-    "hosts": [
-      "lsn-d5509",
-      "lsn-d6334",
-      "lsn-d6125",
-      "lsn-d5497",
-      "lsn-d6116"
-    ]
-  },
-  "metering-infra_all": {
-    "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1023_ceilometer_central_container-189ea545",
-      "lsn-mc1016",
-      "lsn-mc1016_ceilometer_central_container-7baa1785",
-      "lsn-mc1022_ceilometer_central_container-61631af0",
-      "lsn-mc1022"
-    ]
+    "hosts": []
   },
   "metering-infra_containers": {
-    "children": [
-      "lsn-mc1023-host_containers",
-      "lsn-mc1016-host_containers",
-      "lsn-mc1022-host_containers"
-    ],
+    "children": [],
     "hosts": []
   },
   "metering-infra_hosts": {
-    "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022"
-    ]
-  },
-  "metrics_all": {
-    "hosts": [
-      "lsn-mc1023_gnocchi_container-7c9f12aa",
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1016_gnocchi_container-f5b590cf",
-      "lsn-mc1022",
-      "lsn-mc1022_gnocchi_container-3ec7d5bf"
-    ]
+    "children": [],
+    "hosts": []
   },
   "metrics_containers": {
-    "children": [
-      "lsn-mc1023-host_containers",
-      "lsn-mc1016-host_containers",
-      "lsn-mc1022-host_containers"
-    ],
+    "children": [],
     "hosts": []
   },
   "metrics_hosts": {
-    "hosts": [
-      "lsn-mc1023",
-      "lsn-mc1016",
-      "lsn-mc1022"
-    ]
+    "children": [],
+    "hosts": []
   },
   "molteniron": {
     "children": [],
