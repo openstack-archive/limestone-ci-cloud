@@ -1,0 +1,20 @@
+---
+
+container_skel:
+  nova_api_container:
+    belongs_to:
+      - compute-infra_containers
+      - os-infra_containers
+    contains:
+      - nova_api_metadata
+      - nova_api_os_compute
+      - nova_api_placement
+      - nova_conductor
+      - nova_scheduler
+      - nova_console
+  nova_api_metadata_container: {}
+  nova_api_os_compute_container: {}
+  nova_api_placement_container: {}
+  nova_conductor_container: {}
+  nova_scheduler_container: {}
+  nova_console_container: {}
