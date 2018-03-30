@@ -190,6 +190,12 @@
               }
             ],
             "type": "veth"
+          },
+          "eth12_address": {
+            "bridge": "br-flat",
+            "mtu": 8900,
+            "netmask": null,
+            "type": "veth"
           }
         },
         "container_types": "lsn-mc1016-host_containers",
@@ -448,37 +454,6 @@
         "physical_host_group": "shared-infra_hosts",
         "properties": {}
       },
-      "lsn-mc1016_neutron_agents_container-433c446a": {
-        "ansible_host": "10.53.2.28",
-        "component": "neutron_agent",
-        "container_address": "10.53.2.28",
-        "container_name": "lsn-mc1016_neutron_agents_container-433c446a",
-        "container_networks": {
-          "container_address": {
-            "address": "10.53.2.28",
-            "bridge": "br-mgmt",
-            "interface": "eth1",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          },
-          "eth12_address": {
-            "bridge": "br-flat",
-            "interface": "eth12",
-            "mtu": 8900,
-            "netmask": null,
-            "type": "veth"
-          }
-        },
-        "physical_host": "lsn-mc1016",
-        "physical_host_group": "network_hosts",
-        "properties": {}
-      },
       "lsn-mc1016_neutron_server_container-322f9e93": {
         "ansible_host": "10.53.2.134",
         "component": "neutron_server",
@@ -615,6 +590,12 @@
                 "gateway": "10.53.2.1"
               }
             ],
+            "type": "veth"
+          },
+          "eth12_address": {
+            "bridge": "br-flat",
+            "mtu": 8900,
+            "netmask": null,
             "type": "veth"
           }
         },
@@ -874,37 +855,6 @@
         "physical_host_group": "shared-infra_hosts",
         "properties": {}
       },
-      "lsn-mc1022_neutron_agents_container-4f7ce919": {
-        "ansible_host": "10.53.2.119",
-        "component": "neutron_agent",
-        "container_address": "10.53.2.119",
-        "container_name": "lsn-mc1022_neutron_agents_container-4f7ce919",
-        "container_networks": {
-          "container_address": {
-            "address": "10.53.2.119",
-            "bridge": "br-mgmt",
-            "interface": "eth1",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          },
-          "eth12_address": {
-            "bridge": "br-flat",
-            "interface": "eth12",
-            "mtu": 8900,
-            "netmask": null,
-            "type": "veth"
-          }
-        },
-        "physical_host": "lsn-mc1022",
-        "physical_host_group": "network_hosts",
-        "properties": {}
-      },
       "lsn-mc1022_neutron_server_container-a5a0c57b": {
         "ansible_host": "10.53.2.210",
         "component": "neutron_server",
@@ -1041,6 +991,12 @@
                 "gateway": "10.53.2.1"
               }
             ],
+            "type": "veth"
+          },
+          "eth12_address": {
+            "bridge": "br-flat",
+            "mtu": 8900,
+            "netmask": null,
             "type": "veth"
           }
         },
@@ -1298,37 +1254,6 @@
         },
         "physical_host": "lsn-mc1023",
         "physical_host_group": "shared-infra_hosts",
-        "properties": {}
-      },
-      "lsn-mc1023_neutron_agents_container-bf9b803f": {
-        "ansible_host": "10.53.2.55",
-        "component": "neutron_agent",
-        "container_address": "10.53.2.55",
-        "container_name": "lsn-mc1023_neutron_agents_container-bf9b803f",
-        "container_networks": {
-          "container_address": {
-            "address": "10.53.2.55",
-            "bridge": "br-mgmt",
-            "interface": "eth1",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          },
-          "eth12_address": {
-            "bridge": "br-flat",
-            "interface": "eth12",
-            "mtu": 8900,
-            "netmask": null,
-            "type": "veth"
-          }
-        },
-        "physical_host": "lsn-mc1023",
-        "physical_host_group": "network_hosts",
         "properties": {}
       },
       "lsn-mc1023_neutron_server_container-26ce3a6f": {
@@ -2326,8 +2251,7 @@
       "lsn-mc1016_glance_container-70fa7c6c",
       "lsn-mc1016_galera_container-be4858d8",
       "lsn-mc1016_cinder_volumes_container-d52eaeb8",
-      "lsn-mc1016_repo_container-2706da60",
-      "lsn-mc1016_neutron_agents_container-433c446a"
+      "lsn-mc1016_repo_container-2706da60"
     ]
   },
   "lsn-mc1022-host_containers": {
@@ -2346,8 +2270,7 @@
       "lsn-mc1022_glance_container-e538e0ba",
       "lsn-mc1022_galera_container-7bb56dee",
       "lsn-mc1022_cinder_volumes_container-787e2374",
-      "lsn-mc1022_repo_container-a3846102",
-      "lsn-mc1022_neutron_agents_container-4f7ce919"
+      "lsn-mc1022_repo_container-a3846102"
     ]
   },
   "lsn-mc1023-host_containers": {
@@ -2366,8 +2289,7 @@
       "lsn-mc1023_glance_container-6bb8c8df",
       "lsn-mc1023_galera_container-b9b9bb03",
       "lsn-mc1023_cinder_volumes_container-facf0d26",
-      "lsn-mc1023_repo_container-107d2617",
-      "lsn-mc1023_neutron_agents_container-bf9b803f"
+      "lsn-mc1023_repo_container-107d2617"
     ]
   },
   "lxc_hosts": {
@@ -2514,10 +2436,7 @@
       "lsn-mc1016_neutron_server_container-322f9e93",
       "lsn-mc1016",
       "lsn-mc1022_neutron_server_container-a5a0c57b",
-      "lsn-mc1022",
-      "lsn-mc1023_neutron_agents_container-bf9b803f",
-      "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919"
+      "lsn-mc1022"
     ]
   },
   "network_containers": {
@@ -2538,17 +2457,13 @@
   "neutron_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023_neutron_agents_container-bf9b803f",
-      "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919"
+      "lsn-mc1023",
+      "lsn-mc1016",
+      "lsn-mc1022"
     ]
   },
   "neutron_agents_container": {
-    "hosts": [
-      "lsn-mc1023_neutron_agents_container-bf9b803f",
-      "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919"
-    ]
+    "hosts": []
   },
   "neutron_all": {
     "children": [
@@ -2570,75 +2485,75 @@
   "neutron_bgp_dragent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023_neutron_agents_container-bf9b803f",
-      "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919"
+      "lsn-mc1023",
+      "lsn-mc1016",
+      "lsn-mc1022"
     ]
   },
   "neutron_dhcp_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023_neutron_agents_container-bf9b803f",
-      "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919"
+      "lsn-mc1023",
+      "lsn-mc1016",
+      "lsn-mc1022"
     ]
   },
   "neutron_l3_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023_neutron_agents_container-bf9b803f",
-      "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919"
+      "lsn-mc1023",
+      "lsn-mc1016",
+      "lsn-mc1022"
     ]
   },
   "neutron_lbaas_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023_neutron_agents_container-bf9b803f",
-      "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919"
+      "lsn-mc1023",
+      "lsn-mc1016",
+      "lsn-mc1022"
     ]
   },
   "neutron_linuxbridge_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023_neutron_agents_container-bf9b803f",
-      "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919",
       "lsn-d5509",
       "lsn-d6334",
       "lsn-d6125",
       "lsn-d5497",
-      "lsn-d6116"
+      "lsn-d6116",
+      "lsn-mc1023",
+      "lsn-mc1016",
+      "lsn-mc1022"
     ]
   },
   "neutron_metadata_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023_neutron_agents_container-bf9b803f",
-      "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919"
+      "lsn-mc1023",
+      "lsn-mc1016",
+      "lsn-mc1022"
     ]
   },
   "neutron_metering_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023_neutron_agents_container-bf9b803f",
-      "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919"
+      "lsn-mc1023",
+      "lsn-mc1016",
+      "lsn-mc1022"
     ]
   },
   "neutron_openvswitch_agent": {
     "children": [],
     "hosts": [
-      "lsn-mc1023_neutron_agents_container-bf9b803f",
-      "lsn-mc1016_neutron_agents_container-433c446a",
-      "lsn-mc1022_neutron_agents_container-4f7ce919",
       "lsn-d5509",
       "lsn-d6334",
       "lsn-d6125",
       "lsn-d5497",
-      "lsn-d6116"
+      "lsn-d6116",
+      "lsn-mc1023",
+      "lsn-mc1016",
+      "lsn-mc1022"
     ]
   },
   "neutron_server": {
