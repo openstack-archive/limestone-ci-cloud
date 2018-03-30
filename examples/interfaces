@@ -17,34 +17,44 @@ iface enp1s0f1 inet manual
 
 auto bond0
 iface bond0 inet manual
-    #mtu 8900
+    mtu 8900
     bond-mode 802.3ad
     bond-miimon 100
     bond-lacp-rate fast
     bond-slaves enp1s0f0 enp1s0f1
     bond-xmit-hash-policy layer3+4
 
-auto br-mgmt
-iface br-mgmt inet static
+auto br-uplink
+iface br-uplink inet static
     bridge_stp off
     bridge_waitport 0
     bridge_fd 0
-    bridge_ports bond0 veth-int-mgmt
+    bridge_ports bond0 vdown-mgmt vdown-flat
     address 192.169.91.98
     netmask 255.255.255.240
     gateway 192.169.91.97
     dns-nameserver 64.31.5.1
     dns-nameserver 64.31.5.2
 
-auto veth-int-mgmt
-iface veth-int-mgmt inet manual
-    pre-up ip link add dev veth-int-mgmt type veth peer name veth-int-flat
-
-auto br-flat
-iface br-flat inet manual
+auto br-mgmt
+iface br-mgmt inet manual
     bridge_stp off
     bridge_waitport 0
     bridge_fd 0
-    bridge_ports veth-int-flat
+    bridge_ports vup-mgmt
+
+auto vdown-mgmt
+iface vdown-mgmt inet manual
+    pre-up ip link add dev vdown-mgmt type veth peer name vup-mgmt
+    pre-up ip link set vdown-mgmt mtu 8900
+    pre-up ip link set vup-mgmt mtu 8900
+    post-up ip link set vup-mgmt up
+
+auto vdown-flat
+iface vdown-flat inet manual
+    pre-up ip link add dev vdown-flat type veth peer name vup-flat
+    pre-up ip link set vdown-flat mtu 8900
+    pre-up ip link set vup-flat mtu 8900
+    post-up ip link set vup-flat up
 
 source /etc/network/interfaces.d/*.cfg

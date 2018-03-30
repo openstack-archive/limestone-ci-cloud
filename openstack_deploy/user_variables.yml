@@ -31,6 +31,11 @@ global_environment_variables:
 neutron_l2_population: True
 neutron_vxlan_group:
 
+# Set the MTU correctly so VXLAN tenant networks recehive 1500 byte MTUs
+neutron_neutron_conf_overrides:
+  DEFAULT:
+    global_physnet_mtu: 1550
+
 # Enable novnc instead of spice
 nova_console_type: novnc
 

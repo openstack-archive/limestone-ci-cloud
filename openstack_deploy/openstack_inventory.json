@@ -28,6 +28,7 @@
           },
           "eth12_address": {
             "bridge": "br-flat",
+            "mtu": 8900,
             "netmask": null,
             "type": "veth"
           }
@@ -60,6 +61,7 @@
           },
           "eth12_address": {
             "bridge": "br-flat",
+            "mtu": 8900,
             "netmask": null,
             "type": "veth"
           }
@@ -92,6 +94,7 @@
           },
           "eth12_address": {
             "bridge": "br-flat",
+            "mtu": 8900,
             "netmask": null,
             "type": "veth"
           }
@@ -124,6 +127,7 @@
           },
           "eth12_address": {
             "bridge": "br-flat",
+            "mtu": 8900,
             "netmask": null,
             "type": "veth"
           }
@@ -156,6 +160,7 @@
           },
           "eth12_address": {
             "bridge": "br-flat",
+            "mtu": 8900,
             "netmask": null,
             "type": "veth"
           }
@@ -465,6 +470,7 @@
           "eth12_address": {
             "bridge": "br-flat",
             "interface": "eth12",
+            "mtu": 8900,
             "netmask": null,
             "type": "veth"
           }
@@ -890,6 +896,7 @@
           "eth12_address": {
             "bridge": "br-flat",
             "interface": "eth12",
+            "mtu": 8900,
             "netmask": null,
             "type": "veth"
           }
@@ -1315,6 +1322,7 @@
           "eth12_address": {
             "bridge": "br-flat",
             "interface": "eth12",
+            "mtu": 8900,
             "netmask": null,
             "type": "veth"
           }
@@ -1483,11 +1491,12 @@
           "network": {
             "container_bridge": "br-flat",
             "container_interface": "eth12",
+            "container_mtu": 8900,
             "container_type": "veth",
             "group_binds": [
               "neutron_linuxbridge_agent"
             ],
-            "host_bind_override": "bond0",
+            "host_bind_override": "vup-flat",
             "net_name": "flat",
             "type": "flat"
           }
