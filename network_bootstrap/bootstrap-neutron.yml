@@ -17,18 +17,6 @@
         external: yes
         shared: no
 
-    - name: Create Flat uplink v4 subnet
-      os_subnet:
-        cloud: default
-        endpoint_type: internal
-        name: v4 uplink
-        network_name: Flat External
-        cidr: 10.53.2.0/24
-        gateway_ip: 10.53.2.1
-        enable_dhcp: no
-        allocation_pool_start: 10.53.2.3
-        allocation_pool_end: 10.53.2.4
-
     - name: Create Flat public v4 subnet
       os_subnet:
         cloud: default
