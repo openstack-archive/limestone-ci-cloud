@@ -1,0 +1,61 @@
+---
+component_skel:
+  apm-server:
+    belongs_to:
+      - elk_all
+      - apm_all
+  elastic-logstash:
+    belongs_to:
+      - elk_all
+      - elasticsearch
+      - elasticsearch_all
+      - logstash
+      - logstash_all
+  kibana:
+    belongs_to:
+      - elk_all
+
+# Note this is all running "is_metal" This is done because the services will run
+# from a dedicated VM.
+container_skel:
+  apm-server_container:
+    belongs_to:
+      - apm-server_containers
+    contains:
+      - apm-server
+    properties:
+      is_metal: true
+  elastic-logstash_container:
+    belongs_to:
+      - elastic-logstash_containers
+    contains:
+      - elastic-logstash
+    properties:
+      is_metal: true
+  kibana_container:
+    belongs_to:
+      - kibana_containers
+    contains:
+      - kibana
+    properties:
+      is_metal: true
+
+physical_skel:
+  apm-server_containers:
+    belongs_to:
+      - all_containers
+  apm-server_hosts:
+    belongs_to:
+      - hosts
+  elastic-logstash_containers:
+    belongs_to:
+      - all_containers
+  elastic-logstash_hosts:
+    belongs_to:
+      - hosts
+  kibana_containers:
+    belongs_to:
+      - all_containers
+  kibana_hosts:
+    belongs_to:
+      - hosts

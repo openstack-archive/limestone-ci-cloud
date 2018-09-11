@@ -105,3 +105,71 @@ cinder_backends:
     rbd_user: "{{ cinder_ceph_client }}"
     rbd_secret_uuid: "{{ cinder_ceph_client_uuid }}"
     report_discard_supported: true
+
+# uwsgi monitoring overrides
+keystone_uwsgi_ini_overrides:
+  uwsgi:
+    stats: "/tmp/keystone-uwsgi-stats.sock"
+
+cinder_api_uwsgi_ini_overrides:
+  uwsgi:
+    stats: "/tmp/cinder-api-uwsgi-stats.sock"
+
+glance_api_uwsgi_ini_overrides:
+  uwsgi:
+    stats: "/tmp/glance-api-uwsgi-stats.sock"
+
+heat_api_uwsgi_ini_overrides:
+  uwsgi:
+    stats: "/tmp/heat-api-uwsgi-stats.sock"
+
+heat_api_cfn_init_overrides:
+  uwsgi:
+    stats: "/tmp/heat-api-cfn-uwsgi-stats.sock"
+
+nova_api_metadata_uwsgi_ini_overrides:
+  uwsgi:
+    stats: "/tmp/nova-api-metadata-uwsgi-stats.sock"
+
+nova_api_os_compute_uwsgi_ini_overrides:
+  uwsgi:
+    stats: "/tmp/nova-api-os-compute-uwsgi-stats.sock"
+
+nova_placement_uwsgi_ini_overrides:
+  uwsgi:
+    stats: "/tmp/nova-placement-uwsgi-stats.sock"
+
+octavia_api_uwsgi_ini_overrides:
+  uwsgi:
+    stats: "/tmp/octavia-api-uwsgi-stats.sock"
+
+sahara_api_uwsgi_ini_overrides:
+  uwsgi:
+    stats: "/tmp/sahara-api-uwsgi-stats.sock"
+
+ironic_api_uwsgi_ini_overrides:
+  uwsgi:
+    stats: "/tmp/ironic-api-uwsgi-stats.sock"
+
+magnum_api_uwsgi_ini_overrides:
+  uwsgi:
+    stats: "/tmp/magnum-api-uwsgi-stats.sock"
+
+# Adding elastic search and kibana to haproxy_extra_services
+haproxy_extra_services:
+  - service:
+      haproxy_service_name: elasticsearch
+      haproxy_backend_nodes: "{{ groups['elastic-logstash'] | default([]) }}"
+      haproxy_ssl: True
+      haproxy_port: 9201
+      haproxy_backend_port: 9200
+      haproxy_balance_type: http
+      haproxy_backend_options:
+        - "httpchk"
+  - service:
+      haproxy_service_name: kibana_ssl
+      haproxy_backend_nodes: "{{ groups['kibana'] | default([]) }}"
+      haproxy_ssl: True
+      haproxy_port: 8443
+      haproxy_backend_port: 81
+      haproxy_balance_type: tcp

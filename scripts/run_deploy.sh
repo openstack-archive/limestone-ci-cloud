@@ -19,3 +19,9 @@ popd
 pushd ${PROJECT_PATH}/network_bootstrap
 openstack-ansible bootstrap-neutron.yml
 popd
+
+pushd ${PROJECT_PATH}/openstack-ansible-ops/elk_metrics_6x
+source bootstrap-embedded-ansible.sh
+ansible-playbook site.yml "${USER_VARS}" -e 'elk_package_state="latest"'
+deactivate
+popd

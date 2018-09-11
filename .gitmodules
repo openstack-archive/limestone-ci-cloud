@@ -2,3 +2,6 @@
 	path = openstack-ansible
 	url = https://git.openstack.org/openstack/openstack-ansible
 	branch = master
+[submodule "openstack-ansible-ops"]
+	path = openstack-ansible-ops
+	url = https://git.openstack.org/openstack/openstack-ansible-ops
