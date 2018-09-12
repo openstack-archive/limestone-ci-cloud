@@ -28,6 +28,6 @@
     - name: Add the SSH key
       command: "ssh-add {{ ssh_private_key_tmp.path }}"
       environment:
-        SSH_AGENT_SOCK: "{{ ssh_agent_sock }}"
+        SSH_AUTH_SOCK: "{{ ssh_agent_sock }}"
     - name: Remove the SSH private key from disk
       command: "shred -u {{ ssh_private_key_tmp.path }}"

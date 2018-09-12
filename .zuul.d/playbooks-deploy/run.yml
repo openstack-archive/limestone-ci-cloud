@@ -4,7 +4,7 @@
   become: yes
   become_user: root
   environment:
-    SSH_AGENT_SOCK: "{{ ssh_agent_sock }}"
+    SSH_AUTH_SOCK: "{{ ssh_agent_sock }}"
     ANSIBLE_VAULT_PASSWORD_FILE: "{{ vault_key_path }}"
   tasks:
     - name: Run the deploy job
