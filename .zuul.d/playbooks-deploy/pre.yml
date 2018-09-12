@@ -31,3 +31,8 @@
         SSH_AUTH_SOCK: "{{ ssh_agent_sock }}"
     - name: Remove the SSH private key from disk
       command: "shred -u {{ ssh_private_key_tmp.path }}"
+    # Prepare the submodules
+    - name: Init the submodules
+      command: git submodule update --init
+      args:
+        chdir: "{{ lsn_ci_src_path }}"
