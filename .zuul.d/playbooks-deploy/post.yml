@@ -1,0 +1,8 @@
+---
+
+- hosts: all
+  tasks:
+    - name: Clean up the vault key
+      command: "shred -u {{ vault_key_path }}"
+      args:
+        removes: "{{ vault_key_path }}"

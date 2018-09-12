@@ -1,0 +1,33 @@
+---
+
+- hosts: all
+  pre_tasks:
+    - name: Create the vault key path
+      file:
+        path: "{{ vault_key_path | dirname }}"
+        state: directory
+        owner: "{{ ansible_user }}"
+  tasks:
+    - name: Drop the vault key
+      copy:
+        content: "{{ vault_secret.key }}"
+        dest: "{{ vault_key_path }}"
+        mode: '0600'
+    # Load the deployment SSH key
+    - name: Create the SSH private key tempfile
+      tempfile:
+        state: file
+      register: ssh_private_key_tmp
+    - name: Create SSH private key from secret
+      copy:
+        content: "{{ ssh_key_secret.id_rsa }}"
+        dest: "{{ ssh_private_key_tmp.path }}"
+        mode: '0600'
+    - name: Start the SSH agent
+      command: "ssh-agent -a {{ ssh_agent_sock }}"
+    - name: Add the SSH key
+      command: "ssh-add {{ ssh_private_key_tmp.path }}"
+      environment:
+        SSH_AGENT_SOCK: "{{ ssh_agent_sock }}"
+    - name: Remove the SSH private key from disk
+      command: "shred -u {{ ssh_private_key_tmp.path }}"
