@@ -9,3 +9,5 @@
   tasks:
     - name: Run the deploy job
       command: scripts/run_deploy.sh
+      args:
+        chdir: "{{ lsn_ci_src_path }}"

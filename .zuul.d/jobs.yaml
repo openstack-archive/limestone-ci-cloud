@@ -13,6 +13,7 @@
     vars:
       vault_key_path: "{{ ansible_user_dir }}/.vault"
       ssh_agent_sock: "{{ ansible_user_dir }}/.ssh-agent.sock"
+      lsn_ci_src_path: "{{ ansible_user_dir }}/{{ (zuul.projects | dictsort | selectattr('1.short_name', 'equalto', 'limestone-ci-cloud') | list | first).1.src_dir }}"
     secrets:
       - name: ssh_key_secret
         secret: limestone_ci_ssh_key
