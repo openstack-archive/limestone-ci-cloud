@@ -11,7 +11,7 @@ scripts/bootstrap-ansible.sh
 popd
 
 pushd ${PROJECT_PATH}/openstack-ansible/playbooks
-openstack-ansible setup-hosts.yml -vvvvv
+openstack-ansible setup-hosts.yml
 openstack-ansible setup-infrastructure.yml
 openstack-ansible setup-openstack.yml
 popd
