@@ -4,10 +4,14 @@ set -e
 
 export SCRIPT_PATH=$(dirname $(readlink -f "$0"))
 export PROJECT_PATH=$(dirname "$SCRIPT_PATH")
+export INSTALL_ARA="${INSTALL_ARA:-false}"
 
 cp -R ${PROJECT_PATH}/openstack_deploy /etc
 pushd ${PROJECT_PATH}/openstack-ansible
-scripts/bootstrap-ansible.sh
+source scripts/bootstrap-ansible.sh
+if [ "$INSTALL_ARA" == true ]; then
+    setup_ara
+fi
 popd
 
 pushd ${PROJECT_PATH}/openstack-ansible/playbooks

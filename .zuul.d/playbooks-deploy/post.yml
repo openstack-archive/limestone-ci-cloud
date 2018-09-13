@@ -18,4 +18,3 @@
       environment:
         GATE_EXIT_LOG_COPY: true
         GATE_LOG_DIR: "{{ lsn_ci_src_path }}/logs"
-        GATE_EXIT_RUN_ARA: false
