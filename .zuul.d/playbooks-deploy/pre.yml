@@ -21,6 +21,7 @@
       copy:
         src: "{{ lsn_ci_src_path }}/ssh/ssh_config"
         dest: "{{ ansible_user_dir }}/.ssh/config"
+        remote_src: yes
     # Load the deployment SSH key
     - name: Create the SSH private key tempfile
       tempfile:
