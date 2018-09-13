@@ -2,5 +2,5 @@
 # is used from the nodepool deployment host through the first infrastructure
 # host, lsn-mc1016.
 
-Host *
+Host 10.*
     ProxyJump root@192.169.91.98

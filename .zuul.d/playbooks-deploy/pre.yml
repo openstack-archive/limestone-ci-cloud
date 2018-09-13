@@ -1,5 +1,6 @@
 ---
 
+# Drop the vault key
 - hosts: all
   pre_tasks:
     - name: Create the vault key path
@@ -13,15 +14,25 @@
         content: "{{ vault_secret.key }}"
         dest: "{{ vault_key_path }}"
         mode: '0600'
+
+# Drop the SSH proxyjump configuration
+- hosts: all
+  become: yes
+  become_user: root
+  tasks:
     - name: Ensure the SSH configuration directory exists
       file:
-        path: "{{ ansible_user_dir }}/.ssh"
+        path: /root/.ssh
         state: directory
     - name: Copy the SSH proxy configuration
       copy:
         src: "{{ lsn_ci_src_path }}/ssh/ssh_config"
-        dest: "{{ ansible_user_dir }}/.ssh/config"
+        dest: /root/.ssh/config
         remote_src: yes
+
+# Start SSH agent and load the deployment key
+- hosts: all
+  tasks:
     # Load the deployment SSH key
     - name: Create the SSH private key tempfile
       tempfile:
