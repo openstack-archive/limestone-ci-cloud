@@ -15,25 +15,18 @@
         dest: "{{ vault_key_path }}"
         mode: '0600'
 
-# Drop the SSH proxyjump configuration
-- hosts: all
-  become: yes
-  become_user: root
-  tasks:
+    # Drop the SSH proxyjump configuration
     - name: Ensure the SSH configuration directory exists
       file:
-        path: /root/.ssh
+        path: "{{ ansible_user_dir }}/.ssh"
         state: directory
     - name: Copy the SSH proxy configuration
       copy:
         src: "{{ lsn_ci_src_path }}/ssh/ssh_config"
-        dest: /root/.ssh/config
+        dest: "{{ ansible_user_dir }}/.ssh/config"
         remote_src: yes
 
-# Start SSH agent and load the deployment key
-- hosts: all
-  tasks:
-    # Load the deployment SSH key
+    # Start SSH agent and load the deployment key
     - name: Create the SSH private key tempfile
       tempfile:
         state: file
