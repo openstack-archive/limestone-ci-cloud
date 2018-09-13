@@ -19,3 +19,4 @@
         secret: limestone_ci_ssh_key
       - name: vault_secret
         secret: limestone_ci_vault
+    nodeset: ubuntu-bionic
