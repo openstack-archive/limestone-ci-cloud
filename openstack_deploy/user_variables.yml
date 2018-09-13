@@ -12,7 +12,7 @@ haproxy_keepalived_internal_interface: eth1
 lxc_container_ssh_key: "{{ lookup('file', inventory_dir ~ '/../../../ssh/id_rsa.pub') }}"
 
 # Configure SSH keys on hosts
-ssh_key_url: https://raw.githubusercontent.com/continuouspw/openstack-ci-cloud/master/ssh/authorized_keys
+ssh_key_url: https://git.openstack.org/cgit/openstack/limestone-ci-cloud/plain/ssh/authorized_keys
 
 # Galera max_connections default is 100*VCPU. On our controllers, this is 800 connections
 # With the base services deployed, OSA exceeds this threshold resulting in connection
