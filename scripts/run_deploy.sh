@@ -17,8 +17,9 @@ fi
 popd
 
 pushd ${PROJECT_PATH}/openstack-ansible/playbooks
-openstack-ansible setup-hosts.yml
+openstack-ansible openstack-hosts-setup.yml
 exit 0
+openstack-ansible setup-hosts.yml
 openstack-ansible setup-infrastructure.yml
 openstack-ansible setup-openstack.yml
 popd
