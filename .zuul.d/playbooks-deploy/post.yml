@@ -22,3 +22,21 @@
       register: test_gate_job_exit
     - debug:
         msg: "{{ test_gate_job_exit.stdout }}"
+    - name: Check whether a logs folder exists
+      stat:
+        path: "{{ lsn_ci_src_path }}/logs"
+        get_attributes: no
+        get_checksum: no
+        get_md5: no
+        get_mime: no
+      register: logs_folder
+    - name: Copy logs back to the executor
+      synchronize:
+        src: "{{ lsn_ci_src_path }}/logs"
+        dest: "{{ zuul.executor.log_root }}/"
+        mode: pull
+        rsync_opts:
+          - "--quiet"
+      when:
+        - logs_folder.stat is defined
+        - logs_folder.stat.exists | bool
