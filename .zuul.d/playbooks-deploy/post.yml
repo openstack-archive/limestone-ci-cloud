@@ -8,7 +8,6 @@
         removes: "{{ vault_key_path }}"
     - name: Run the log collection script
       shell: |
-        set -x
         source scripts/scripts-library.sh
         gate_job_exit_tasks
       become: yes
@@ -19,9 +18,6 @@
       environment:
         GATE_EXIT_LOG_COPY: 'true'
         GATE_LOG_DIR: "{{ lsn_ci_src_path }}/logs"
-      register: test_gate_job_exit
-    - debug:
-        msg: "{{ test_gate_job_exit.stdout }}"
     - name: Check whether a logs folder exists
       stat:
         path: "{{ lsn_ci_src_path }}/logs"
