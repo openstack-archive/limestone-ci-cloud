@@ -6,7 +6,6 @@
   environment:
     SSH_AUTH_SOCK: "{{ ssh_agent_sock }}"
     ANSIBLE_VAULT_PASSWORD_FILE: "{{ vault_key_path }}"
-    LSN_RUN_ARA: 'true'
   tasks:
     - name: Run the deploy job
       command: scripts/run_deploy.sh
