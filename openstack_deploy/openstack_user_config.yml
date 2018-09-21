@@ -99,5 +99,9 @@ compute_hosts: &compute_hosts
     ip: 10.4.69.14
   lsn-d5640:
     ip: 10.4.69.15
+  lsn-d6107:
+    ip: 10.4.69.16
+  lsn-d6243:
+    ip: 10.4.69.17
 
 ceph-osd_hosts: *compute_hosts

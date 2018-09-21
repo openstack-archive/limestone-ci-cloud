@@ -188,6 +188,39 @@
           "is_metal": true
         }
       },
+      "lsn-d6107": {
+        "ansible_host": "10.4.69.16",
+        "component": "ceph-osd",
+        "container_address": "10.4.69.16",
+        "container_name": "lsn-d6107",
+        "container_networks": {
+          "container_address": {
+            "address": "10.4.69.16",
+            "bridge": "br-mgmt",
+            "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
+            "type": "veth"
+          },
+          "eth12_address": {
+            "bridge": "br-flat",
+            "mtu": 8900,
+            "netmask": null,
+            "type": "veth"
+          }
+        },
+        "container_types": "lsn-d6107-host_containers",
+        "is_metal": true,
+        "physical_host": "lsn-d6107",
+        "physical_host_group": "compute_hosts",
+        "properties": {
+          "is_metal": true
+        }
+      },
       "lsn-d6116": {
         "ansible_host": "10.4.69.13",
         "component": "ceph-osd",
@@ -250,6 +283,39 @@
         "is_metal": true,
         "physical_host": "lsn-d6125",
         "physical_host_group": "ceph-osd_hosts",
+        "properties": {
+          "is_metal": true
+        }
+      },
+      "lsn-d6243": {
+        "ansible_host": "10.4.69.17",
+        "component": "ceph-osd",
+        "container_address": "10.4.69.17",
+        "container_name": "lsn-d6243",
+        "container_networks": {
+          "container_address": {
+            "address": "10.4.69.17",
+            "bridge": "br-mgmt",
+            "netmask": "255.255.255.0",
+            "static_routes": [
+              {
+                "cidr": "10.4.69.0/24",
+                "gateway": "10.53.2.1"
+              }
+            ],
+            "type": "veth"
+          },
+          "eth12_address": {
+            "bridge": "br-flat",
+            "mtu": 8900,
+            "netmask": null,
+            "type": "veth"
+          }
+        },
+        "container_types": "lsn-d6243-host_containers",
+        "is_metal": true,
+        "physical_host": "lsn-d6243",
+        "physical_host_group": "compute_hosts",
         "properties": {
           "is_metal": true
         }
@@ -1746,7 +1812,9 @@
       "lsn-d6125",
       "lsn-d5497",
       "lsn-d6116",
-      "lsn-d5640"
+      "lsn-d5640",
+      "lsn-d6107",
+      "lsn-d6243"
     ]
   },
   "ceph-osd_all": {
@@ -1756,7 +1824,9 @@
       "lsn-d6125",
       "lsn-d5497",
       "lsn-d6116",
-      "lsn-d5640"
+      "lsn-d5640",
+      "lsn-d6107",
+      "lsn-d6243"
     ]
   },
   "ceph-osd_container": {
@@ -1769,7 +1839,9 @@
       "lsn-d6125-host_containers",
       "lsn-d5497-host_containers",
       "lsn-d6116-host_containers",
-      "lsn-d5640-host_containers"
+      "lsn-d5640-host_containers",
+      "lsn-d6107-host_containers",
+      "lsn-d6243-host_containers"
     ],
     "hosts": []
   },
@@ -1781,7 +1853,9 @@
       "lsn-d6125",
       "lsn-d5497",
       "lsn-d6116",
-      "lsn-d5640"
+      "lsn-d5640",
+      "lsn-d6107",
+      "lsn-d6243"
     ]
   },
   "ceph_all": {
@@ -1881,7 +1955,9 @@
       "lsn-d6125",
       "lsn-d5497",
       "lsn-d6116",
-      "lsn-d5640"
+      "lsn-d5640",
+      "lsn-d6107",
+      "lsn-d6243"
     ]
   },
   "compute_containers": {
@@ -1891,7 +1967,9 @@
       "lsn-d6125-host_containers",
       "lsn-d5497-host_containers",
       "lsn-d6116-host_containers",
-      "lsn-d5640-host_containers"
+      "lsn-d5640-host_containers",
+      "lsn-d6107-host_containers",
+      "lsn-d6243-host_containers"
     ],
     "hosts": []
   },
@@ -1903,7 +1981,9 @@
       "lsn-d6125",
       "lsn-d5497",
       "lsn-d6116",
-      "lsn-d5640"
+      "lsn-d5640",
+      "lsn-d6107",
+      "lsn-d6243"
     ]
   },
   "dashboard_all": {
@@ -2789,7 +2869,9 @@
       "lsn-mc1023",
       "lsn-mc1016",
       "lsn-mc1022",
-      "lsn-d5640"
+      "lsn-d5640",
+      "lsn-d6107",
+      "lsn-d6243"
     ]
   },
   "neutron_metadata_agent": {
@@ -2819,7 +2901,9 @@
       "lsn-mc1023",
       "lsn-mc1016",
       "lsn-mc1022",
-      "lsn-d5640"
+      "lsn-d5640",
+      "lsn-d6107",
+      "lsn-d6243"
     ]
   },
   "neutron_server": {
@@ -2845,7 +2929,9 @@
       "lsn-d6125",
       "lsn-d5497",
       "lsn-d6116",
-      "lsn-d5640"
+      "lsn-d5640",
+      "lsn-d6107",
+      "lsn-d6243"
     ]
   },
   "nova_all": {
@@ -2909,7 +2995,9 @@
       "lsn-d6125",
       "lsn-d5497",
       "lsn-d6116",
-      "lsn-d5640"
+      "lsn-d5640",
+      "lsn-d6107",
+      "lsn-d6243"
     ]
   },
   "nova_compute_container": {
