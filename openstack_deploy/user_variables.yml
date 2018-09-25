@@ -35,6 +35,7 @@ nova_console_type: novnc
 # The intent is to allow flexible ratios (to a point) while using ram as the
 # bottom line limiting factor in determining a full host normally.
 nova_cpu_mode: host-passthrough
+nova_libvirt_disk_cachemodes: writeback
 nova_compute_ksm_enabled: True
 nova_cpu_allocation_ratio: 10
 nova_disk_allocation_ratio: 5
