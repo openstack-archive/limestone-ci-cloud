@@ -68,7 +68,7 @@ fsid: 98a1078e-7b72-4782-9cf7-ae7c68fd900f # Replace with your generated UUID
 
 ## ceph-ansible settings
 ## See https://github.com/ceph/ceph-ansible/tree/master/group_vars for
-## additional configuration options availble.
+## additional configuration options available.
 monitor_address_block: "{{ cidr_networks.container }}"
 public_network: "{{ cidr_networks.container }},10.4.69.0/24"
 osd_scenario: collocated
