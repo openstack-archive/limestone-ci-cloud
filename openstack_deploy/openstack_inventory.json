@@ -8,87 +8,6 @@
   },
   "_meta": {
     "hostvars": {
-      "elk1": {
-        "ansible_host": "10.4.70.59",
-        "component": "apm-server",
-        "container_address": "10.4.70.59",
-        "container_name": "elk1",
-        "container_networks": {
-          "container_address": {
-            "address": "10.4.70.59",
-            "bridge": "br-mgmt",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          }
-        },
-        "container_types": "elk1-host_containers",
-        "is_metal": true,
-        "physical_host": "elk1",
-        "physical_host_group": "apm-server_hosts",
-        "properties": {
-          "is_metal": true
-        }
-      },
-      "elk2": {
-        "ansible_host": "10.4.70.31",
-        "component": "apm-server",
-        "container_address": "10.4.70.31",
-        "container_name": "elk2",
-        "container_networks": {
-          "container_address": {
-            "address": "10.4.70.31",
-            "bridge": "br-mgmt",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          }
-        },
-        "container_types": "elk2-host_containers",
-        "is_metal": true,
-        "physical_host": "elk2",
-        "physical_host_group": "apm-server_hosts",
-        "properties": {
-          "is_metal": true
-        }
-      },
-      "elk3": {
-        "ansible_host": "10.4.70.67",
-        "component": "apm-server",
-        "container_address": "10.4.70.67",
-        "container_name": "elk3",
-        "container_networks": {
-          "container_address": {
-            "address": "10.4.70.67",
-            "bridge": "br-mgmt",
-            "netmask": "255.255.255.0",
-            "static_routes": [
-              {
-                "cidr": "10.4.69.0/24",
-                "gateway": "10.53.2.1"
-              }
-            ],
-            "type": "veth"
-          }
-        },
-        "container_types": "elk3-host_containers",
-        "is_metal": true,
-        "physical_host": "elk3",
-        "physical_host_group": "apm-server_hosts",
-        "properties": {
-          "is_metal": true
-        }
-      },
       "lsn-d5497": {
         "ansible_host": "10.4.69.14",
         "component": "ceph-osd",
@@ -1654,10 +1573,7 @@
       "storage-infra_containers",
       "identity_containers",
       "dnsaas_containers",
-      "qemu-compute_containers",
-      "apm-server_containers",
-      "kibana_containers",
-      "elastic-logstash_containers"
+      "qemu-compute_containers"
     ],
     "hosts": []
   },
@@ -1687,45 +1603,6 @@
   },
   "aodh_listener": {
     "children": [],
-    "hosts": []
-  },
-  "apm-server": {
-    "children": [],
-    "hosts": [
-      "elk2",
-      "elk3",
-      "elk1"
-    ]
-  },
-  "apm-server_all": {
-    "hosts": [
-      "elk2",
-      "elk3",
-      "elk1"
-    ]
-  },
-  "apm-server_container": {
-    "hosts": []
-  },
-  "apm-server_containers": {
-    "children": [
-      "elk2-host_containers",
-      "elk3-host_containers",
-      "elk1-host_containers"
-    ],
-    "hosts": []
-  },
-  "apm-server_hosts": {
-    "hosts": [
-      "elk2",
-      "elk3",
-      "elk1"
-    ]
-  },
-  "apm_all": {
-    "children": [
-      "apm-server"
-    ],
     "hosts": []
   },
   "barbican_all": {
@@ -2065,59 +1942,6 @@
     "children": [],
     "hosts": []
   },
-  "elastic-logstash": {
-    "children": [],
-    "hosts": [
-      "elk2",
-      "elk3",
-      "elk1"
-    ]
-  },
-  "elastic-logstash_all": {
-    "hosts": [
-      "elk2",
-      "elk3",
-      "elk1"
-    ]
-  },
-  "elastic-logstash_container": {
-    "hosts": []
-  },
-  "elastic-logstash_containers": {
-    "children": [
-      "elk2-host_containers",
-      "elk3-host_containers",
-      "elk1-host_containers"
-    ],
-    "hosts": []
-  },
-  "elastic-logstash_hosts": {
-    "hosts": [
-      "elk2",
-      "elk3",
-      "elk1"
-    ]
-  },
-  "elasticsearch": {
-    "children": [
-      "elastic-logstash"
-    ],
-    "hosts": []
-  },
-  "elasticsearch_all": {
-    "children": [
-      "elastic-logstash"
-    ],
-    "hosts": []
-  },
-  "elk_all": {
-    "children": [
-      "kibana",
-      "elastic-logstash",
-      "apm-server"
-    ],
-    "hosts": []
-  },
   "etcd": {
     "children": [],
     "hosts": []
@@ -2366,10 +2190,7 @@
       "metering-alarm_hosts",
       "ceph-mon_hosts",
       "metrics_hosts",
-      "storage_hosts",
-      "apm-server_hosts",
-      "elastic-logstash_hosts",
-      "kibana_hosts"
+      "storage_hosts"
     ],
     "hosts": []
   },
@@ -2518,39 +2339,6 @@
       "lsn-mc1022_keystone_container-e0c88868"
     ]
   },
-  "kibana": {
-    "children": [],
-    "hosts": [
-      "elk2",
-      "elk3",
-      "elk1"
-    ]
-  },
-  "kibana_all": {
-    "hosts": [
-      "elk2",
-      "elk3",
-      "elk1"
-    ]
-  },
-  "kibana_container": {
-    "hosts": []
-  },
-  "kibana_containers": {
-    "children": [
-      "elk2-host_containers",
-      "elk3-host_containers",
-      "elk1-host_containers"
-    ],
-    "hosts": []
-  },
-  "kibana_hosts": {
-    "hosts": [
-      "elk2",
-      "elk3",
-      "elk1"
-    ]
-  },
   "kvm-compute_containers": {
     "children": [],
     "hosts": []
@@ -2565,18 +2353,6 @@
   },
   "log_hosts": {
     "children": [],
-    "hosts": []
-  },
-  "logstash": {
-    "children": [
-      "elastic-logstash"
-    ],
-    "hosts": []
-  },
-  "logstash_all": {
-    "children": [
-      "elastic-logstash"
-    ],
     "hosts": []
   },
   "lsn-mc1016-host_containers": {
