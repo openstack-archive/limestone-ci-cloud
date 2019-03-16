@@ -80,10 +80,6 @@
         ipv6_address_mode: dhcpv6-stateless
         ipv6_ra_mode: dhcpv6-stateless
 
-    # NOTE(logan): uses vendored os_router module from stable-2.4
-    # since the os_router module in 2.3 (pike) has broken idempotency
-    # and causes needless interface attach/deattaches.
-    # remove vendored module in queens
     - name: Create flat uplink router
       os_router:
         cloud: default
