@@ -2,7 +2,9 @@
 
 # Allow control node physical hosts to contact metadata endpoint
 # since the Neutron agents are no longer containerized.
+# Additionally, this is required to whitelist the bare-metal hosts
+# communication with the apt-cacher-ng endpoint
 haproxy_metal_networks:
   - "{{ cidr_networks.external }}"
-haproxy_nova_metadata_whitelist_networks: "{{ haproxy_whitelist_networks +
-                                              haproxy_metal_networks }}"
+haproxy_whitelist_networks: "{{ haproxy_whitelist_networks +
+                                haproxy_metal_networks }}"
