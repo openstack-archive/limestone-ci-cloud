@@ -74,17 +74,6 @@ orchestration_hosts: *infrastructure_hosts
 dashboard_hosts: *infrastructure_hosts
 network_hosts: *infrastructure_hosts
 
-# Elastic-Stack
-kibana_hosts: &elk_hosts
-  elk1:
-    ip: 10.4.70.59
-  elk2:
-    ip: 10.4.70.31
-  elk3:
-    ip: 10.4.70.67
-elastic-logstash_hosts: *elk_hosts
-apm-server_hosts: *elk_hosts
-
 # nova hypervisors
 compute_hosts: &compute_hosts
   lsn-d5509:
