@@ -9,7 +9,7 @@ haproxy_keepalived_external_interface: eth1
 haproxy_keepalived_internal_interface: eth1
 
 # Add the SSH pubkey needed for deployment
-lxc_container_ssh_key: "{{ lookup('file', inventory_dir ~ '/../../../ssh/id_rsa.pub') }}"
+lxc_container_ssh_key: "{{ lookup('file', inventory_dir ~ '/../../ssh/id_rsa.pub') }}"
 
 # Configure SSH keys on hosts
 ssh_key_url: https://git.openstack.org/cgit/openstack/limestone-ci-cloud/plain/ssh/authorized_keys
