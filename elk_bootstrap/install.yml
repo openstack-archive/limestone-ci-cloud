@@ -1,0 +1,11 @@
+---
+
+- import_playbook: "{{ playbook_dir }}/../openstack-ansible-ops/elk_metrics_6x/site-elka.yml"
+
+- import_playbook: "{{ playbook_dir }}/../openstack-ansible-ops/elk_metrics_6x/installHeartbeat.yml"
+
+- import_playbook: "{{ playbook_dir }}/../openstack-ansible-ops/elk_metrics_6x/installFilebeat.yml"
+
+- import_playbook: "{{ playbook_dir }}/../openstack-ansible-ops/elk_metrics_6x/installJournalbeat.yml"
+
+- import_playbook: "{{ playbook_dir }}/../openstack-ansible-ops/elk_metrics_6x/createElasticIndexes.yml"
