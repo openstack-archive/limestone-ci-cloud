@@ -145,22 +145,3 @@ ironic_api_uwsgi_ini_overrides:
 magnum_api_uwsgi_ini_overrides:
   uwsgi:
     stats: "/tmp/magnum-api-uwsgi-stats.sock"
-
-# Adding elastic search and kibana to haproxy_extra_services
-haproxy_extra_services:
-  - service:
-      haproxy_service_name: elasticsearch
-      haproxy_backend_nodes: "{{ groups['elastic-logstash'] | default([]) }}"
-      haproxy_ssl: True
-      haproxy_port: 9201
-      haproxy_backend_port: 9200
-      haproxy_balance_type: http
-      haproxy_backend_options:
-        - "httpchk"
-  - service:
-      haproxy_service_name: kibana_ssl
-      haproxy_backend_nodes: "{{ groups['kibana'] | default([]) }}"
-      haproxy_ssl: True
-      haproxy_port: 8443
-      haproxy_backend_port: 81
-      haproxy_balance_type: tcp

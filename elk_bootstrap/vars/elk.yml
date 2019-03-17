@@ -1,0 +1,42 @@
+---
+
+elk_bootstrap_auth:
+  auth_url: "https://{{ external_lb_vip_address }}:5000/v3"
+  project_name: ELK
+  username: elk-ansible
+  password: !vault |
+    $ANSIBLE_VAULT;1.1;AES256
+    37306132646537343266396632373832373637633230383334356335303666663134633531393433
+    3166653761356366366365323463656461666237633130330a363937383639613931306365646364
+    62616634353463333364323635653937623734376331393064326533376634336335343566353437
+    3236326435643735630a633833643663643961626365396464633638303932613562376463323332
+    36326135636464656435376633376333613462363263393738613331643466643433
+  user_domain_id: default
+  project_domain_id: default
+
+elk_region_name: RegionOne
+
+elk_flavor:
+  name: elk
+  public: no
+  vcpus: 8
+  ram: 16384
+  disk: 25
+
+elk_instance_template:
+  image: 'ubuntu 18.04 [20180618]'
+  key_name: ELK-ansible
+  flavor: "{{ elk_flavor.name }}"
+  network: Gateway Network
+  security_groups:
+    - All Traffic
+  volumes:
+    - name: data
+      size: 1024
+
+elk_server_group: elk
+
+elk_instances:
+  - "{{ elk_instance_template | combine({'name': 'elk1-1'}) }}"
+  - "{{ elk_instance_template | combine({'name': 'elk1-2'}) }}"
+  - "{{ elk_instance_template | combine({'name': 'elk1-3'}) }}"
