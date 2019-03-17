@@ -1,0 +1,16 @@
+---
+# {{ ansible_managed }}
+
+all:
+  children:
+    elk_hosts:
+      vars:
+        physical_host: "{% raw %}{{ inventory_hostname }}{% endraw %}"
+        ansible_python_interpreter: /usr/bin/python3
+      hosts:
+{% for host in groups['elk_hosts'] %}
+        {{ host }}:
+          ansible_host: "{{ hostvars[host]['ansible_host'] }}"
+          ansible_user: "{{ hostvars[host]['ansible_user'] }}"
+          ansible_become: {{ hostvars[host]['ansible_become'] | bool }}
+{% endfor %}

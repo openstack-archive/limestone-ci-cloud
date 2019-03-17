@@ -1,0 +1,13 @@
+---
+
+all:
+  children:
+    apm-server:
+      children:
+        ? elk_hosts
+    elastic-logstash:
+      children:
+        ? elk_hosts
+    kibana:
+      children:
+        ? elk_hosts
