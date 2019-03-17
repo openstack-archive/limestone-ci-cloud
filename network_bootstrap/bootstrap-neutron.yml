@@ -2,9 +2,9 @@
   hosts: utility_all[0]
   gather_facts: no
   tasks:
-    - name: Install shade module
+    - name: Install openstacksdk
       pip:
-        name: shade
+        name: openstacksdk
         state: latest
     - name: Create the Flat uplink network
       os_network:
