@@ -6,7 +6,7 @@ export SCRIPT_PATH=$(dirname $(readlink -f "$0"))
 export PROJECT_PATH=$(dirname "$SCRIPT_PATH")
 export SETUP_ARA="${SETUP_ARA:-false}"
 
-cp -R ${PROJECT_PATH}/openstack_deploy /etc
+cp -RL ${PROJECT_PATH}/openstack_deploy /etc
 pushd ${PROJECT_PATH}/openstack-ansible
 source scripts/bootstrap-ansible.sh
 if [ "$SETUP_ARA" == true ]; then
