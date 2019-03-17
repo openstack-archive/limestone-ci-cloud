@@ -5,9 +5,9 @@
     description: |
       Run openstack-ansible to deploy the Limestone Networks
       CI cloud
-    pre-run: .zuul.d/playbooks-deploy/pre.yml
-    run: .zuul.d/playbooks-deploy/run.yml
-    post-run: .zuul.d/playbooks-deploy/post.yml
+    pre-run: zuul.d/playbooks-deploy/pre.yml
+    run: zuul.d/playbooks-deploy/run.yml
+    post-run: zuul.d/playbooks-deploy/post.yml
     timeout: 10800
     allowed-projects:
       - openstack/limestone-ci-cloud
