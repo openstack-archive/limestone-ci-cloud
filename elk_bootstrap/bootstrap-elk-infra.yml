@@ -1,0 +1,179 @@
+---
+
+- name: Bootstrap ELK project
+  hosts: utility_all[0]
+  gather_facts: no
+  vars_files:
+    - vars/elk.yml
+  pre_tasks:
+    - name: Install openstacksdk
+      pip:
+        name: openstacksdk
+        state: latest
+  tasks:
+    - name: Create ELK project
+      os_project:
+        cloud: default
+        endpoint_type: internal
+        name: "{{ elk_bootstrap_auth.project_name }}"
+        domain: "{{ elk_bootstrap_auth.project_domain_id }}"
+        description: ELK stack
+        region_name: "{{ elk_region_name }}"
+    - name: Create ELK user
+      os_user:
+        cloud: default
+        endpoint_type: internal
+        description: ELK Ansible Management user
+        name: "{{ elk_bootstrap_auth.username }}"
+        password: "{{ elk_bootstrap_auth.password }}"
+        domain: "{{ elk_bootstrap_auth.user_domain_id }}"
+        region_name: "{{ elk_region_name }}"
+        default_project: "{{ elk_bootstrap_auth.project_name }}"
+    - name: Add ELK user to project
+      os_user_role:
+        cloud: default
+        endpoint_type: internal
+        user: "{{ elk_bootstrap_auth.username }}"
+        project: "{{ elk_bootstrap_auth.project_name }}"
+        role: '_member_'
+# NOTE(logan): os_project_access was not added until ansible 2.5, so this
+# cannot be used until OSA is upgraded to Rocky. Until then the flavor must
+# be bootstrapped manually.
+#    - name: Create ELK flavor
+#      os_nova_flavor:
+#        cloud: default
+#        endpoint_type: internal
+#        name: "{{ elk_flavor.name }}"
+#        is_public: "{{ elk_flavor.public | bool }}"
+#        vcpus: "{{ elk_flavor.vcpus }}"
+#        ram: "{{ elk_flavor.ram }}"
+#        disk: "{{ elk_flavor.disk }}"
+#    - name: Add ELK user access to flavor
+#      os_project_access:
+#        cloud: default
+#        endpoint_type: internal
+#        target_project_id: "{{ elk_bootstrap_auth.project_name }}"
+#        resource_type: nova_flavor
+#        resource_name: "{{ elk_flavor.name }}"
+
+- name: Bootstrap ELK Infrastructure
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - vars/elk.yml
+  pre_tasks:
+    - name: Install openstacksdk
+      pip:
+        name: openstacksdk
+  tasks:
+    - name: Create SSH keypair
+      os_keypair:
+        auth: "{{ elk_bootstrap_auth }}"
+        cacert: "{{ playbook_dir }}/../continuous_cacert.pem"
+        name: ELK-ansible
+        public_key_file: "{{ playbook_dir }}/../ssh/id_rsa.pub"
+    - name: Create All Traffic security group
+      os_security_group:
+        auth: "{{ elk_bootstrap_auth }}"
+        cacert: "{{ playbook_dir }}/../continuous_cacert.pem"
+        name: All Traffic
+        description: Pass all traffic
+    - name: Add All Traffic security group rules
+      os_security_group_rule:
+        auth: "{{ elk_bootstrap_auth }}"
+        cacert: "{{ playbook_dir }}/../continuous_cacert.pem"
+        security_group: All Traffic
+        direction: "{{ item.direction }}"
+        ethertype: "{{ item.ethertype }}"
+      with_items:
+        - direction: ingress
+          ethertype: IPv4
+        - direction: ingress
+          ethertype: IPv6
+        - direction: egress
+          ethertype: IPv4
+        - direction: egress
+          ethertype: IPv6
+    - name: Create ELK anti-affinity group
+      os_server_group:
+        auth: "{{ elk_bootstrap_auth }}"
+        cacert: "{{ playbook_dir }}/../continuous_cacert.pem"
+        name: "{{ elk_server_group }}"
+        policies:
+          - anti-affinity
+      register: server_group
+    - name: Create ELK instances
+      os_server:
+        auth: "{{ elk_bootstrap_auth }}"
+        cacert: "{{ playbook_dir }}/../continuous_cacert.pem"
+        name: "{{ item.name }}"
+        scheduler_hints:
+          group: "{{ server_group.id }}"
+        image: "{{ item.image }}"
+        key_name: "{{ item.key_name }}"
+        flavor: "{{ item.flavor }}"
+        network: "{{ item.network }}"
+        security_groups: "{{ item.security_groups }}"
+      with_items: "{{ elk_instances }}"
+      register: elk_instances_create
+    - name: Create ELK volumes
+      os_volume:
+        auth: "{{ elk_bootstrap_auth }}"
+        cacert: "{{ playbook_dir }}/../continuous_cacert.pem"
+        display_name: "{{ item.0.name }}_{{ item.1.name }}"
+        size: "{{ item.1.size }}"
+      with_subelements:
+        - "{{ elk_instances }}"
+        - volumes
+      # NOTE(logan): New syntax for ansible 2.5
+      # loop: "{{ lookup('subelements', elk_instances, 'volumes', {'skip_missing': True}, wantlist=True) }}"
+    - name: Attach volume to ELK instance
+      os_server_volume:
+        auth: "{{ elk_bootstrap_auth }}"
+        cacert: "{{ playbook_dir }}/../continuous_cacert.pem"
+        server: "{{ item.0.name }}"
+        volume: "{{ item.0.name }}_{{ item.1.name }}"
+      with_subelements:
+        - "{{ elk_instances }}"
+        - volumes
+      # NOTE(logan): New syntax for ansible 2.5
+      # loop: "{{ lookup('subelements', elk_instances, 'volumes', {'skip_missing': True}, wantlist=True) }}"
+    - name: Add the hosts to the inventory
+      add_host:
+        name: "{{ item.openstack.name }}"
+        groups: elk_hosts
+        ansible_host: "{{ item.openstack.public_v4 }}"
+        ansible_user: ubuntu
+        ansible_become: true
+      with_items: "{{ elk_instances_create.results }}"
+      delegate_to: localhost
+    - name: Build the ansible ELK inventory file
+      template:
+        src: inventory.yml.j2
+        dest: "{{ playbook_dir }}/inventory/elk_hosts.yml"
+
+- import_playbook: "{{ playbook_dir }}/../openstack-ansible/playbooks/openstack-hosts-setup.yml"
+  vars:
+    openstack_host_group: elk_hosts
+- import_playbook: "{{ playbook_dir }}/../openstack-ansible/playbooks/security-hardening.yml"
+  vars:
+    security_host_group: elk_hosts
+- import_playbook: "{{ playbook_dir }}/../openstack-ansible/playbooks/haproxy-install.yml"
+  vars:
+    haproxy_default_services:
+      - service:
+          haproxy_service_name: elasticsearch
+          haproxy_backend_nodes: "{{ groups['elk_hosts'] | default([]) }}"
+          haproxy_ssl: True
+          haproxy_port: 9201
+          haproxy_backend_port: 9200
+          haproxy_balance_type: http
+          haproxy_backend_options:
+            - "httpchk"
+      - service:
+          haproxy_service_name: kibana_ssl
+          haproxy_backend_nodes: "{{ groups['elk_hosts'] | default([]) }}"
+          haproxy_ssl: True
+          haproxy_port: 8443
+          haproxy_backend_port: 81
+          haproxy_balance_type: tcp
