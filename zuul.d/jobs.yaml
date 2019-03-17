@@ -2,7 +2,7 @@
 
 - job:
     name: limestone-ci-deploy
-    description: |
+    description: >-
       Run openstack-ansible to deploy the Limestone Networks
       CI cloud
     pre-run: zuul.d/playbooks-deploy/pre.yml

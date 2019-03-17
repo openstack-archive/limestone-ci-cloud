@@ -9,9 +9,6 @@ export SETUP_ARA="${SETUP_ARA:-false}"
 cp -RL ${PROJECT_PATH}/openstack_deploy /etc
 pushd ${PROJECT_PATH}/openstack-ansible
 source scripts/bootstrap-ansible.sh
-if [ "$SETUP_ARA" == true ]; then
-    setup_ara
-fi
 popd
 
 pushd ${PROJECT_PATH}/openstack-ansible/playbooks
