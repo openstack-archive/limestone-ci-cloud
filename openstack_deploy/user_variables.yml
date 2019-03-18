@@ -14,6 +14,13 @@ lxc_container_ssh_key: "{{ lookup('file', '/etc/openstack_deploy/ssh/id_rsa.pub'
 # Configure SSH keys on hosts
 ssh_key_url: https://git.openstack.org/cgit/openstack/limestone-ci-cloud/plain/ssh/authorized_keys
 
+# Use the utility container for bootstrapping openstack services
+openstack_service_setup_host: "{{ groups['utility_all'][0] }}"
+openstack_service_setup_host_python_interpreter: "/openstack/venvs/utility-{{ openstack_release }}/bin/python"
+# NOTE(logan): It should be possible to remove shade once ansible 2.6 is used in Stein
+utility_pip_packages:
+  - shade
+
 # Galera max_connections default is 100*VCPU. On our controllers, this is 800 connections
 # With the base services deployed, OSA exceeds this threshold resulting in connection
 # contention in the database cluster
