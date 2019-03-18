@@ -1,6 +1,13 @@
 - name: Bootstrap neutron networks
-  hosts: utility_all[0]
-  gather_facts: no
+  hosts: "{{ openstack_service_setup_host | default('localhost') }}"
+  pre_tasks:
+    - name: Set ansible_python_interpreter
+      set_fact:
+        ansible_python_interpreter: >-
+          {{ openstack_service_setup_host_python_interpreter |
+            default((inventory_hostname == 'localhost') |
+                    ternary(ansible_playbook_python,
+                            ansible_python['executable'])) }}
   tasks:
     - name: Install openstacksdk
       pip:
