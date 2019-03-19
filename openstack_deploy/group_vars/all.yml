@@ -1,0 +1,5 @@
+---
+
+# Rocky default is Luminous(12.x), use Mimic(13.x) instead
+# NOTE(logan): Remove this in Stein
+ceph_stable_release: mimic
