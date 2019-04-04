@@ -49,24 +49,7 @@ nova_disk_allocation_ratio: 5
 nova_ram_allocation_ratio: 1.2
 
 # Enable extra Nova scheduler filters
-# This list is all of the OSA defaults + AggregateInstanceExtraSpecsFilter
-nova_scheduler_default_filters: >-
-  RetryFilter,
-  AvailabilityZoneFilter,
-  RamFilter,
-  AggregateRamFilter,
-  ComputeFilter,
-  AggregateCoreFilter,
-  DiskFilter,
-  AggregateDiskFilter,
-  AggregateNumInstancesFilter,
-  AggregateIoOpsFilter,
-  ComputeCapabilitiesFilter,
-  ImagePropertiesFilter,
-  ServerGroupAntiAffinityFilter,
-  ServerGroupAffinityFilter,
-  NUMATopologyFilter,
-  AggregateInstanceExtraSpecsFilter
+nova_scheduler_extra_filters: AggregateInstanceExtraSpecsFilter
 
 ## Ceph cluster fsid (must be generated before first run)
 ## Generate a uuid using: python -c 'import uuid; print(str(uuid.uuid4()))'
