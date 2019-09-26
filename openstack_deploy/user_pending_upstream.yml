@@ -1,5 +1,0 @@
----
-
-# Can be removed once https://review.openstack.org/#/c/643695/
-# is implemented in the OSA SHA tag used.
-ceph_mons: "{{ groups[mon_group_name] }}"
